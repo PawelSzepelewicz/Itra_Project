@@ -1,4 +1,4 @@
-package com.moshecorp.universityunion.service;
+package com.moshecorp.universityunion.service.comments;
 
 import com.moshecorp.universityunion.model.comments.Comments;
 

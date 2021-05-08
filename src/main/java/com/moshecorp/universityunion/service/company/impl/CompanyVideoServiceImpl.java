@@ -1,8 +1,8 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.moshecorp.universityunion.model.company.CompanyVideo;
 import com.moshecorp.universityunion.repository.company.CompanyVideoRepository;
-import com.moshecorp.universityunion.service.CompanyVideoService;
+import com.moshecorp.universityunion.service.company.CompanyVideoService;
 
 import java.util.List;
 

@@ -1,8 +1,10 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.company.CompanyInfo;
-import com.moshecorp.universityunion.service.*;
+import com.moshecorp.universityunion.service.comments.CommentsService;
+import com.moshecorp.universityunion.service.comments.LikesService;
+import com.moshecorp.universityunion.service.company.*;
 
 import java.util.HashMap;
 import java.util.List;

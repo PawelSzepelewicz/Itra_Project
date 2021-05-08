@@ -1,4 +1,4 @@
-package com.moshecorp.universityunion.service;
+package com.moshecorp.universityunion.service.company;
 
 import com.moshecorp.universityunion.enums.Categories;
 import com.moshecorp.universityunion.model.company.Company;

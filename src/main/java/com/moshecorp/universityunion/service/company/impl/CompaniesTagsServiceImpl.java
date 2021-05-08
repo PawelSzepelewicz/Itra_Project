@@ -1,8 +1,8 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.moshecorp.universityunion.model.company.CompanyTags;
 import com.moshecorp.universityunion.repository.company.CompaniesTagsRepository;
-import com.moshecorp.universityunion.service.CompaniesTagsService;
+import com.moshecorp.universityunion.service.company.CompaniesTagsService;
 
 import java.util.List;
 

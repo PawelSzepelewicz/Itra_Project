@@ -1,8 +1,8 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.moshecorp.universityunion.model.company.BonusOffer;
 import com.moshecorp.universityunion.repository.company.BonusOfferRepository;
-import com.moshecorp.universityunion.service.BonusOfferService;
+import com.moshecorp.universityunion.service.company.BonusOfferService;
 
 import java.util.List;
 

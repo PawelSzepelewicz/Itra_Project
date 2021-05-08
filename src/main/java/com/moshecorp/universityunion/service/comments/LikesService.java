@@ -1,4 +1,4 @@
-package com.moshecorp.universityunion.service;
+package com.moshecorp.universityunion.service.comments;
 
 import org.springframework.data.repository.query.Param;
 

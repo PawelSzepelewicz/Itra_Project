@@ -1,6 +1,6 @@
 package com.moshecorp.universityunion.controller;
 
-import com.moshecorp.universityunion.service.CompanyPhotoService;
+import com.moshecorp.universityunion.service.company.CompanyPhotoService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

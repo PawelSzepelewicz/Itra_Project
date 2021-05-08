@@ -1,8 +1,8 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.moshecorp.universityunion.model.company.News;
 import com.moshecorp.universityunion.repository.company.NewsRepository;
-import com.moshecorp.universityunion.service.NewsService;
+import com.moshecorp.universityunion.service.company.NewsService;
 
 import java.util.List;
 

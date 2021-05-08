@@ -1,20 +1,15 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.Transformation;
-import com.cloudinary.utils.ObjectUtils;
 import com.moshecorp.universityunion.model.company.CompanyPhoto;
 import com.moshecorp.universityunion.repository.company.CompanyPhotoRepository;
-import com.moshecorp.universityunion.service.CompanyPhotoService;
+import com.moshecorp.universityunion.service.company.CompanyPhotoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

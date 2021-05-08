@@ -1,9 +1,9 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.moshecorp.universityunion.enums.Categories;
 import com.moshecorp.universityunion.model.company.Company;
 import com.moshecorp.universityunion.repository.company.CompanyRepository;
-import com.moshecorp.universityunion.service.CompanyService;
+import com.moshecorp.universityunion.service.company.CompanyService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 

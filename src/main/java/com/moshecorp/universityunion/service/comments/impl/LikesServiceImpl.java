@@ -1,7 +1,7 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.comments.impl;
 
 import com.moshecorp.universityunion.repository.comments.LikesRepository;
-import com.moshecorp.universityunion.service.LikesService;
+import com.moshecorp.universityunion.service.comments.LikesService;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.moshecorp.universityunion.model.company.Payments;
 import com.moshecorp.universityunion.repository.company.PaymentsRepository;
-import com.moshecorp.universityunion.service.PaymentService;
+import com.moshecorp.universityunion.service.company.PaymentService;
 
 import java.sql.Timestamp;
 

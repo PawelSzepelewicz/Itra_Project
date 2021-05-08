@@ -1,8 +1,8 @@
-package com.moshecorp.universityunion.service.impl;
+package com.moshecorp.universityunion.service.company.impl;
 
 import com.moshecorp.universityunion.model.company.Rating;
 import com.moshecorp.universityunion.repository.company.RatingRepository;
-import com.moshecorp.universityunion.service.RatingService;
+import com.moshecorp.universityunion.service.company.RatingService;
 
 public class RatingServiceImpl implements RatingService {
 
