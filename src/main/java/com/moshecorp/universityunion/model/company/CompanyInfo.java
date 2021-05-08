@@ -4,6 +4,7 @@ import com.moshecorp.universityunion.model.abstarct.AbstractEntity;
 import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.comments.Likes;
 import com.moshecorp.universityunion.model.common.Category;
+import com.moshecorp.universityunion.model.common.Tags;
 import lombok.Data;
 
 import java.util.List;

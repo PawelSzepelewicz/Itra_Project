@@ -4,6 +4,7 @@ import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.company.CompanyInfo;
 import com.moshecorp.universityunion.service.comments.CommentsService;
 import com.moshecorp.universityunion.service.comments.LikesService;
+import com.moshecorp.universityunion.service.common.TagsService;
 import com.moshecorp.universityunion.service.company.*;
 
 import java.util.HashMap;
@@ -16,7 +17,6 @@ public class CompanyInfoServiceImpl implements CompanyInfoService {
     CompanyPhotoService companyPhotoService;
     CompanyVideoService companyVideoService;
     CompaniesTagsService companiesTagsService;
-    LikesService likesService;
     CommentsService commentsService;
     RatingService ratingService;
     NewsService newsService;
@@ -30,12 +30,7 @@ public class CompanyInfoServiceImpl implements CompanyInfoService {
         companyInfo.setCompanyTags(companiesTagsService.getAllByCompanyId(companyId));
         companyInfo.setNews(newsService.getAllByCompanyId(companyId));
         companyInfo.setRating(ratingService.getAverageRatingByCompanyId(companyId));
-        List<Comments> commentsList = commentsService.getByCompanyId(companyId);
-        Map<Comments, Integer> commentsAndLikes = new HashMap<>();
-        commentsList.forEach(comment -> {
-            Integer countOfLikes= likesService.getCountOfLikesByCommentId(comment.getId());
-            commentsAndLikes.put(comment, countOfLikes);
-        });
+        companyInfo.setCommentsAndLikes(commentsService.getCommentsAndLikesByCompanyId(companyId));
         companyInfo.setBonusOffers(bonusOfferService.getAllByCompanyId(companyId));
         return companyInfo;
     }

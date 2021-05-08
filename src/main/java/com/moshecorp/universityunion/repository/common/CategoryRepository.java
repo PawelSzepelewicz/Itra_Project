@@ -2,9 +2,13 @@ package com.moshecorp.universityunion.repository.common;
 
 import com.moshecorp.universityunion.model.common.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     Category getById(Long id);
+
+    @Query(value = "select categoryName from Category")
+    Category getCategoryName();
 
 }
