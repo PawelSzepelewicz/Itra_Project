@@ -1,0 +1,30 @@
+FETCH JS_QUERY
+
+let name = await fetch('http://localhost:8080/clients/getClientByID',
+{
+      method: 'POST',
+headers: {
+      "Content-type": "application/json"
+    },
+      body: 11
+    })
+
+    let result = await name.json()
+
+    result
+
+
+
+    let res = await fetch('http://localhost:8080/result/setNewResult',
+    {
+          method: 'POST',
+    headers: {
+          "Content-type": "application/json"
+        },
+          body: 11
+        })
+
+        let result = {
+        first: 12,
+        second: 13
+        };

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="2021-05-02" author="PawelSzepelewicz">
+
+        <createTable tableName="company">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="company_pkey" nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiration_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="target_sum" type="decimal">
+                <constraints nullable="false"/>
+            </column>
+            <column name="current_sum" type="decimal">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="company_photo">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="company_photo_pkey" nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="photo_url" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="company_video">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="company_video_pkey" nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="video_url" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="bonus_offer">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="bonus_offer_pkey" nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sum" type="decimal">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="payments">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="payments_pkey" nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_datetime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sum" type="decimal">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="rating">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="rating_pkey" nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating_value" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="companies_tags">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="companies_tags_pkey" nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tag_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="news">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="news_pkey" nullable="false"/>
+            </column>
+            <column name="company_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_datetime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="photo_url" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="company"
+                                 baseColumnNames="user_id"
+                                 constraintName="company_user_id_fkey"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="company_photo"
+                                 baseColumnNames="company_id"
+                                 constraintName="company_photo_company_id_fkey"
+                                 referencedTableName="company"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="company_video"
+                                 baseColumnNames="company_id"
+                                 constraintName="company_video_company_id_fkey"
+                                 referencedTableName="company"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="bonus_offer"
+                                 baseColumnNames="company_id"
+                                 constraintName="bonus_offer_company_id_fkey"
+                                 referencedTableName="company"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="payments"
+                                 baseColumnNames="user_id"
+                                 constraintName="payment_user_id_fkey"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="payments"
+                                 baseColumnNames="company_id"
+                                 constraintName="payment_company_id_fkey"
+                                 referencedTableName="company"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="rating"
+                                 baseColumnNames="user_id"
+                                 constraintName="rating_user_id_fkey"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="rating"
+                                 baseColumnNames="company_id"
+                                 constraintName="rating_company_id_fkey"
+                                 referencedTableName="company"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="companies_tags"
+                                 baseColumnNames="company_id"
+                                 constraintName="companies_tags_company_id_fkey"
+                                 referencedTableName="company"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="companies_tags"
+                                 baseColumnNames="tag_id"
+                                 constraintName="companies_tags_tag_id_fkey"
+                                 referencedTableName="tags"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="news"
+                                 baseColumnNames="company_id"
+                                 constraintName="news_company_id_fkey"
+                                 referencedTableName="company"
+                                 referencedColumnNames="id"/>
+
+    </changeSet>
+
+</databaseChangeLog>
