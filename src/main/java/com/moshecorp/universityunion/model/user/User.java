@@ -7,18 +7,18 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "usr")
 public class User extends AbstractEntity {
 
-    private String firstName;
-    private String lastName;
     private String email;
-    private String username;
+    private String publicId;
     private String password;
     private Roles roles;
-
+    private String name;
+    private String gender;
+    private String locale;
 }

@@ -26,7 +26,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 //	implementation('org.springframework.boot:spring-boot-starter-oauth2')
-//	implementation('org.springframework.boot:spring-boot-starter-security')
+	implementation('org.springframework.boot:spring-boot-starter-security')
+	implementation('org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.1.RELEASE')
 	implementation group: 'com.cloudinary', name: 'cloudinary-http44', version: '1.29.0'
 	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.jetbrains:annotations:20.1.0'

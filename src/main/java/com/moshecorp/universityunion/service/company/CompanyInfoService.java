@@ -6,5 +6,4 @@ public interface CompanyInfoService {
 
      CompanyInfo getByCompanyId(Long companyId);
 
-
 }

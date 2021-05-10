@@ -7,26 +7,29 @@
 
     <changeSet id="2021-04-20" author="PawelSzepelewicz">
 
-        <createTable tableName="user">
+        <createTable tableName="usr">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="user_pkey" nullable="false"/>
             </column>
-            <column name="first_name" type="varchar">
-                <constraints nullable="false"/>
-            </column>
-            <column name="last_name" type="varchar">
+            <column name="public_id" type="varchar">
                 <constraints nullable="false"/>
             </column>
             <column name="email" type="varchar">
                 <constraints nullable="false"/>
             </column>
-            <column name="username" type="varchar">
+            <column name="name" type="varchar">
                 <constraints nullable="false"/>
             </column>
             <column name="password" type="varchar">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="roles" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="locale" type="varchar">
                 <constraints nullable="false"/>
             </column>
         </createTable>

@@ -22,6 +22,7 @@ public class CompanyInfoServiceImpl implements CompanyInfoService {
     NewsService newsService;
     BonusOfferService bonusOfferService;
 
+    @Override
     public CompanyInfo getByCompanyId(Long companyId) {
         CompanyInfo companyInfo = new CompanyInfo();
         companyInfo.setCompany(companyService.getById(companyId));
