@@ -148,7 +148,7 @@
         <addForeignKeyConstraint baseTableName="company"
                                  baseColumnNames="user_id"
                                  constraintName="company_user_id_fkey"
-                                 referencedTableName="user"
+                                 referencedTableName="usr"
                                  referencedColumnNames="id"/>
 
         <addForeignKeyConstraint baseTableName="company_photo"
@@ -172,7 +172,7 @@
         <addForeignKeyConstraint baseTableName="payments"
                                  baseColumnNames="user_id"
                                  constraintName="payment_user_id_fkey"
-                                 referencedTableName="user"
+                                 referencedTableName="usr"
                                  referencedColumnNames="id"/>
 
         <addForeignKeyConstraint baseTableName="payments"
@@ -184,7 +184,7 @@
         <addForeignKeyConstraint baseTableName="rating"
                                  baseColumnNames="user_id"
                                  constraintName="rating_user_id_fkey"
-                                 referencedTableName="user"
+                                 referencedTableName="usr"
                                  referencedColumnNames="id"/>
 
         <addForeignKeyConstraint baseTableName="rating"

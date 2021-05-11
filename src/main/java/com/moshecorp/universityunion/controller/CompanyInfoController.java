@@ -20,6 +20,6 @@ public class CompanyInfoController {
 
     @GetMapping("/test")
     public String test(){
-        return "Go fuck yourself";
+        return "Go fuck yourself \n <button href=\"http://localhost:8090/logout\">Logout</button>";
     }
 }
