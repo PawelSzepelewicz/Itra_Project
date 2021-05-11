@@ -1,15 +1,8 @@
 package com.moshecorp.universityunion.service.company.impl;
 
-import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.company.CompanyInfo;
 import com.moshecorp.universityunion.service.comments.CommentsService;
-import com.moshecorp.universityunion.service.comments.LikesService;
-import com.moshecorp.universityunion.service.common.TagsService;
 import com.moshecorp.universityunion.service.company.*;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class CompanyInfoServiceImpl implements CompanyInfoService {
 

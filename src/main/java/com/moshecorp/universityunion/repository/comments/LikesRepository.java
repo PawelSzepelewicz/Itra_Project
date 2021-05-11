@@ -14,4 +14,6 @@ public interface LikesRepository extends JpaRepository<Likes, Long> {
 
     @Query(value = "select userId from Likes where commentId = :commentId")
     List<Long> getUserIdByCommentId(@Param("commentId") Long commentId);
+
+    List<Likes> getAllByCommentId(Long commentId);
 }

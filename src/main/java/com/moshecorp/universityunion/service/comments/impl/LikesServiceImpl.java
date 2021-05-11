@@ -1,6 +1,7 @@
 package com.moshecorp.universityunion.service.comments.impl;
 
 import com.moshecorp.universityunion.model.comments.Comments;
+import com.moshecorp.universityunion.model.comments.Likes;
 import com.moshecorp.universityunion.repository.comments.LikesRepository;
 import com.moshecorp.universityunion.service.comments.LikesService;
 
@@ -20,5 +21,10 @@ public class LikesServiceImpl implements LikesService {
     @Override
     public List<Long> getUserIdByCommentId(Long commentId) {
         return likesRepository.getUserIdByCommentId(commentId);
+    }
+
+    @Override
+    public List<Likes> getListOfLikesByCommentId(Long commentId) {
+        return likesRepository.getAllByCommentId(commentId);
     }
 }
