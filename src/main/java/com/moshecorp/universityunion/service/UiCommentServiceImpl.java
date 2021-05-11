@@ -12,11 +12,13 @@ import com.moshecorp.universityunion.service.comments.impl.CommentsServiceImpl;
 import com.moshecorp.universityunion.service.comments.impl.LikesServiceImpl;
 import com.moshecorp.universityunion.service.user.UserService;
 import com.moshecorp.universityunion.service.user.impl.UserServiceImpl;
+import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UiCommentServiceImpl implements UiCommentService {
 
     CommentsService commentsService = new CommentsServiceImpl();

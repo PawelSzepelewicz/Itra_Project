@@ -5,11 +5,12 @@ import com.moshecorp.universityunion.repository.comments.CommentsRepository;
 import com.moshecorp.universityunion.repository.comments.LikesRepository;
 import com.moshecorp.universityunion.service.comments.CommentsService;
 import com.moshecorp.universityunion.service.comments.LikesService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class CommentsServiceImpl implements CommentsService {
 
     CommentsRepository commentsRepository;

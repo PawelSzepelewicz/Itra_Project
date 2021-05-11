@@ -8,6 +8,7 @@ import com.moshecorp.universityunion.repository.user.UserRepository;
 import com.moshecorp.universityunion.service.UiCommentService;
 import com.moshecorp.universityunion.service.UiCommentServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import java.util.List;
 @RequestMapping("/company/comment")
 @AllArgsConstructor
 public class UiCommentController {
+    @Autowired
     private final UiCommentService service;
 
     @PostMapping("/get")
