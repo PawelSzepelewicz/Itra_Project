@@ -14,7 +14,7 @@ public class Comments extends AbstractEntity {
 
     private Long userId;
     private Long companyId;
-    private Timestamp commentsDatetime;
+    private Timestamp commentDatetime;
     private String text;
 
 }

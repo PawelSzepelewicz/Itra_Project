@@ -40,7 +40,7 @@ public class UiCommentServiceImpl implements UiCommentService {
             uiComment.setId(comment.getId());
             uiComment.setContent(comment.getText());
             uiComment.setAuthorName(userService.getUserNameById(comment.getUserId()));
-            uiComment.setCreationDatetime(comment.getCommentsDatetime());
+            uiComment.setCreationDatetime(comment.getCommentDatetime());
             List<Likes> likesList = likesService.getListOfLikesByCommentId(comment.getId());
             uiComment.setLikesCount(likesList.size());
             uiComment.setLiked(likesList.stream().anyMatch(ll -> ll.getUserId().equals(ids.getUserId())));
