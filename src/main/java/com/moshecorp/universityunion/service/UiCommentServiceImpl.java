@@ -12,6 +12,7 @@ import com.moshecorp.universityunion.service.comments.impl.CommentsServiceImpl;
 import com.moshecorp.universityunion.service.comments.impl.LikesServiceImpl;
 import com.moshecorp.universityunion.service.user.UserService;
 import com.moshecorp.universityunion.service.user.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -21,9 +22,13 @@ import java.util.List;
 @Service
 public class UiCommentServiceImpl implements UiCommentService {
 
-    CommentsService commentsService = new CommentsServiceImpl();
-    UserService userService = new UserServiceImpl();
-    LikesService likesService = new LikesServiceImpl();
+
+    @Autowired
+    CommentsService commentsService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    LikesService likesService;
 
     @Override
     public List<UiComment> getUiCommentsList(UserAndCompanyIds ids) {

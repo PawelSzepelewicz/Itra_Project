@@ -14,4 +14,9 @@ public class MainController {
     public String getPhotoFromFront() {
         return "You are successfully logout";
     }
+
+    @GetMapping("")
+    public String mainMethod() {
+        return "Some info here at main page";
+    }
 }

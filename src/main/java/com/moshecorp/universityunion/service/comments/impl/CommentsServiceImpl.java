@@ -5,6 +5,7 @@ import com.moshecorp.universityunion.repository.comments.CommentsRepository;
 import com.moshecorp.universityunion.repository.comments.LikesRepository;
 import com.moshecorp.universityunion.service.comments.CommentsService;
 import com.moshecorp.universityunion.service.comments.LikesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -13,9 +14,9 @@ import java.util.Map;
 @Service
 public class CommentsServiceImpl implements CommentsService {
 
-    CommentsRepository commentsRepository;
+    @Autowired
+    private CommentsRepository commentsRepository;
     private final LikesService likesService = new LikesServiceImpl();
-
 
     @Override
     public List<Comments> getByCompanyId(Long companyId) {

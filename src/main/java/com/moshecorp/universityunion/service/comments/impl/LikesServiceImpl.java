@@ -4,14 +4,17 @@ import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.comments.Likes;
 import com.moshecorp.universityunion.repository.comments.LikesRepository;
 import com.moshecorp.universityunion.service.comments.LikesService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class LikesServiceImpl implements LikesService {
 
-    LikesRepository likesRepository;
+    @Autowired
+    private LikesRepository likesRepository;
 
     @Override
     public Integer getCountOfLikesByCommentId(Long commentId) {
