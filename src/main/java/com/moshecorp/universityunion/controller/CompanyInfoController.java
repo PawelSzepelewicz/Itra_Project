@@ -23,4 +23,10 @@ public class CompanyInfoController {
     public void test(@RequestBody String someShit){
         System.out.println(someShit);
     }
+
+    @CrossOrigin
+    @GetMapping("/test")
+    public String testGet(){
+        return "Go fuck yourself again";
+    }
 }

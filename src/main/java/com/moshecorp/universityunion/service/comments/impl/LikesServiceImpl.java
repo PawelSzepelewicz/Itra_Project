@@ -13,10 +13,6 @@ public class LikesServiceImpl implements LikesService {
 
     LikesRepository likesRepository;
 
-    public LikesServiceImpl(LikesRepository likesRepository) {
-        this.likesRepository = likesRepository;
-    }
-
     @Override
     public Integer getCountOfLikesByCommentId(Long commentId) {
         return likesRepository.getCountOfLikesByCommentId(commentId);

@@ -19,16 +19,9 @@ import java.util.List;
 
 public class UiCommentServiceImpl implements UiCommentService {
 
-    CommentsRepository commentsRepository;
-    LikesRepository likesRepository;
-    CommentsService commentsService = new CommentsServiceImpl(commentsRepository, likesRepository);
+    CommentsService commentsService = new CommentsServiceImpl();
     UserService userService = new UserServiceImpl();
-    LikesService likesService = new LikesServiceImpl(likesRepository);
-
-    public UiCommentServiceImpl(CommentsRepository commentsRepository, LikesRepository likesRepository) {
-        this.commentsRepository = commentsRepository;
-        this.likesRepository = likesRepository;
-    }
+    LikesService likesService = new LikesServiceImpl();
 
     @Override
     public List<UiComment> getUiCommentsList(UserAndCompanyIds ids) {

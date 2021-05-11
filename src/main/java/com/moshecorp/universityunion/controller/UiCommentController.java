@@ -19,9 +19,7 @@ import java.util.List;
 @RequestMapping("/company/comment")
 @AllArgsConstructor
 public class UiCommentController {
-    private final CommentsRepository commentsRepository;
-    private final LikesRepository likesRepository;
-    private final UiCommentService service = new UiCommentServiceImpl(commentsRepository, likesRepository);
+    private final UiCommentService service;
 
     @PostMapping("/get")
     public List<UiComment> getUiCommentsList(@RequestBody UserAndCompanyIds ids) {

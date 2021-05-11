@@ -13,13 +13,8 @@ import java.util.Map;
 public class CommentsServiceImpl implements CommentsService {
 
     CommentsRepository commentsRepository;
-    LikesRepository likesRepository;
-    private final LikesService likesService = new LikesServiceImpl(likesRepository);
+    private final LikesService likesService = new LikesServiceImpl();
 
-    public CommentsServiceImpl(CommentsRepository commentsRepository, LikesRepository likesRepository) {
-        this.commentsRepository = commentsRepository;
-        this.likesRepository = likesRepository;
-    }
 
     @Override
     public List<Comments> getByCompanyId(Long companyId) {
