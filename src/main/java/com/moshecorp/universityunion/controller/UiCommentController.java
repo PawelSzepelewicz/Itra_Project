@@ -2,6 +2,9 @@ package com.moshecorp.universityunion.controller;
 
 import com.moshecorp.universityunion.model.UiComment;
 import com.moshecorp.universityunion.model.UserAndCompanyIds;
+import com.moshecorp.universityunion.repository.comments.CommentsRepository;
+import com.moshecorp.universityunion.repository.comments.LikesRepository;
+import com.moshecorp.universityunion.repository.user.UserRepository;
 import com.moshecorp.universityunion.service.UiCommentService;
 import com.moshecorp.universityunion.service.UiCommentServiceImpl;
 import lombok.AllArgsConstructor;
@@ -16,7 +19,9 @@ import java.util.List;
 @RequestMapping("/company/comment")
 @AllArgsConstructor
 public class UiCommentController {
-    private final UiCommentService service = new UiCommentServiceImpl();
+    private final CommentsRepository commentsRepository;
+    private final LikesRepository likesRepository;
+    private final UiCommentService service = new UiCommentServiceImpl(commentsRepository, likesRepository);
 
     @PostMapping("/get")
     public List<UiComment> getUiCommentsList(@RequestBody UserAndCompanyIds ids) {

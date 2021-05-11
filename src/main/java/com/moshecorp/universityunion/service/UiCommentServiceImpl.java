@@ -4,6 +4,8 @@ import com.moshecorp.universityunion.model.UiComment;
 import com.moshecorp.universityunion.model.UserAndCompanyIds;
 import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.comments.Likes;
+import com.moshecorp.universityunion.repository.comments.CommentsRepository;
+import com.moshecorp.universityunion.repository.comments.LikesRepository;
 import com.moshecorp.universityunion.service.comments.CommentsService;
 import com.moshecorp.universityunion.service.comments.LikesService;
 import com.moshecorp.universityunion.service.comments.impl.CommentsServiceImpl;
@@ -17,9 +19,16 @@ import java.util.List;
 
 public class UiCommentServiceImpl implements UiCommentService {
 
-    CommentsService commentsService = new CommentsServiceImpl();
+    CommentsRepository commentsRepository;
+    LikesRepository likesRepository;
+    CommentsService commentsService = new CommentsServiceImpl(commentsRepository, likesRepository);
     UserService userService = new UserServiceImpl();
-    LikesService likesService = new LikesServiceImpl();
+    LikesService likesService = new LikesServiceImpl(likesRepository);
+
+    public UiCommentServiceImpl(CommentsRepository commentsRepository, LikesRepository likesRepository) {
+        this.commentsRepository = commentsRepository;
+        this.likesRepository = likesRepository;
+    }
 
     @Override
     public List<UiComment> getUiCommentsList(UserAndCompanyIds ids) {
