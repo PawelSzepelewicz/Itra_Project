@@ -18,8 +18,9 @@ public class CompanyInfoController {
         return service.getByCompanyId(id);
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "Go fuck yourself \n <button href=\"http://localhost:8090/logout\">Logout</button>";
+    @CrossOrigin
+    @PostMapping("/test")
+    public void test(@RequestBody String someShit){
+        System.out.println(someShit);
     }
 }
