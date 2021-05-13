@@ -1,8 +1,9 @@
-package com.moshecorp.universityunion.controller;
+package com.moshecorp.universityunion.controller.company;
 
 import com.moshecorp.universityunion.model.UiComment;
 import com.moshecorp.universityunion.model.UserAndCompanyIds;
 import com.moshecorp.universityunion.service.UiCommentService;
+import com.moshecorp.universityunion.service.company.CompaniesTagsService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,16 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController()
-@RequestMapping("/company/comment")
+@RequestMapping("/tags")
 @AllArgsConstructor
-public class UiCommentController {
-
+public class CompaniesTagsController {
     @Autowired
-    private final UiCommentService service;
+    private final CompaniesTagsService service;
 
-    @PostMapping("/get")
-    public List<UiComment> getUiCommentsList(@RequestBody UserAndCompanyIds ids) {
-        return service.getUiCommentsList(ids);
+    @PostMapping("/getCompanyIdByTag")
+    public List<Long> getCompanyIdById(@RequestBody Long id) {
+        return service.getCompanyIdById(id);
     }
 }
-

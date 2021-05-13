@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface CompanyInfoService {
 
-     CompanyInfo getByCompanyId(Long companyId);
+//     CompanyInfo getByCompanyId(Long companyId);
 
 }

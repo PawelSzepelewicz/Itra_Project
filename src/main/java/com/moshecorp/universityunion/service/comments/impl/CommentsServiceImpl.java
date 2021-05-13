@@ -8,6 +8,8 @@ import com.moshecorp.universityunion.service.comments.LikesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,19 +21,15 @@ public class CommentsServiceImpl implements CommentsService {
     private final LikesService likesService = new LikesServiceImpl();
 
     @Override
-    public List<Comments> getByCompanyId(Long companyId) {
-        return commentsRepository.getByCompanyId(companyId);
+    public void setCommentToDatabase(Comments comments) {
+        Timestamp ts = Timestamp.from(Instant.now());
+        comments.setCommentsDatetime(ts);
+        commentsRepository.save(comments);
     }
 
     @Override
-    public Map<Comments, Integer> getCommentsAndLikesByCompanyId(Long companyId) {
-        List<Comments> commentsList = commentsRepository.getByCompanyId(companyId);
-        Map<Comments, Integer> commentsAndLikes = new HashMap<>();
-        commentsList.forEach(comment -> {
-            Integer countOfLikes= likesService.getCountOfLikesByCommentId(comment.getId());
-            commentsAndLikes.put(comment, countOfLikes);
-        });
-        return commentsAndLikes;
+    public List<Comments> getByCompanyId(Long companyId) {
+        return commentsRepository.getByCompanyId(companyId);
     }
 
 }

@@ -13,10 +13,10 @@ public class CompanyInfoController {
 
     private final CompanyInfoService service = new CompanyInfoServiceImpl();
 
-    @PostMapping("/get/{id}")
-    public CompanyInfo getCompanyInfoById(@PathVariable Long id){
-        return service.getByCompanyId(id);
-    }
+//    @PostMapping("/get/{id}")
+//    public CompanyInfo getCompanyInfoById(@PathVariable Long id){
+//        return service.getByCompanyId(id);
+//    }
 
     @CrossOrigin
     @PostMapping("/test")

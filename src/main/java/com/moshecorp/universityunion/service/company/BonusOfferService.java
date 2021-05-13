@@ -6,14 +6,22 @@ import java.util.List;
 
 public interface BonusOfferService {
 
-    BonusOffer getById(Long id);
+      BonusOffer getById(Long id);
 
-    List<BonusOffer> getAllByCompanyId(Long id);
+      String getTitleById(Long id);
 
-    void saveBonusOfferListToDB(List<BonusOffer> bonusOfferList);
+      Long getCompanyIdById(Long id);
 
-    void changeBonusOffer(BonusOffer bonusOffer);
+      String getDescriptionById(Long id);
 
-    List<BonusOffer> getBonusOfferTitlesByCompanyId(Long companyId);
+      Double getBonusSumById(Long id);
+
+//    List<BonusOffer> getAllByCompanyId(Long id);
+//
+//    void saveBonusOfferListToDB(List<BonusOffer> bonusOfferList);
+//
+//    void changeBonusOffer(BonusOffer bonusOffer);
+//
+//    List<BonusOffer> getBonusOfferTitlesByCompanyId(Long companyId);
 
 }

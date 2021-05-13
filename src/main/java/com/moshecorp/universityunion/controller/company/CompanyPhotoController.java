@@ -1,4 +1,4 @@
-package com.moshecorp.universityunion.controller;
+package com.moshecorp.universityunion.controller.company;
 
 import com.moshecorp.universityunion.service.company.CompanyPhotoService;
 import lombok.AllArgsConstructor;

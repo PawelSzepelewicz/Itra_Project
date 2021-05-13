@@ -17,7 +17,7 @@
             <column name="name" type="varchar">
                 <constraints nullable="false"/>
             </column>
-            <column name="category" type="varchar">
+            <column name="category_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="creation_date" type="datetime">
@@ -209,6 +209,18 @@
                                  baseColumnNames="company_id"
                                  constraintName="news_company_id_fkey"
                                  referencedTableName="company"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="company"
+                                 baseColumnNames="category_id"
+                                 constraintName="company_category_id_fkey"
+                                 referencedTableName="category"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="user_bonuses"
+                                 baseColumnNames="bonus_offer_id"
+                                 constraintName="user_bonuses_bonus_offer_id_fkey"
+                                 referencedTableName="bonus_offer"
                                  referencedColumnNames="id"/>
 
     </changeSet>

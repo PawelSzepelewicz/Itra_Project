@@ -3,7 +3,9 @@ package com.moshecorp.universityunion.service.company.impl;
 import com.moshecorp.universityunion.model.company.CompanyInfo;
 import com.moshecorp.universityunion.service.comments.CommentsService;
 import com.moshecorp.universityunion.service.company.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CompanyInfoServiceImpl implements CompanyInfoService {
 
     CompanyService companyService;
@@ -15,18 +17,18 @@ public class CompanyInfoServiceImpl implements CompanyInfoService {
     NewsService newsService;
     BonusOfferService bonusOfferService;
 
-    @Override
-    public CompanyInfo getByCompanyId(Long companyId) {
-        CompanyInfo companyInfo = new CompanyInfo();
-        companyInfo.setCompany(companyService.getById(companyId));
-        companyInfo.setCompanyPhoto(companyPhotoService.getAllByCompanyId(companyId));
-        companyInfo.setCompanyVideo(companyVideoService.getAllByCompanyId(companyId));
-        companyInfo.setCompanyTags(companiesTagsService.getAllByCompanyId(companyId));
-        companyInfo.setNews(newsService.getAllByCompanyId(companyId));
-        companyInfo.setRating(ratingService.getAverageRatingByCompanyId(companyId));
-        companyInfo.setCommentsAndLikes(commentsService.getCommentsAndLikesByCompanyId(companyId));
-        companyInfo.setBonusOffers(bonusOfferService.getAllByCompanyId(companyId));
-        return companyInfo;
-    }
+//    @Override
+//    public CompanyInfo getByCompanyId(Long companyId) {
+//        CompanyInfo companyInfo = new CompanyInfo();
+//        companyInfo.setCompany(companyService.getById(companyId));
+//        companyInfo.setCompanyPhoto(companyPhotoService.getAllByCompanyId(companyId));
+//        companyInfo.setCompanyVideo(companyVideoService.getAllByCompanyId(companyId));
+//        companyInfo.setCompanyTags(companiesTagsService.getAllByCompanyId(companyId));
+//        companyInfo.setNews(newsService.getAllByCompanyId(companyId));
+//        companyInfo.setRating(ratingService.getAverageRatingByCompanyId(companyId));
+//        companyInfo.setCommentsAndLikes(commentsService.getCommentsAndLikesByCompanyId(companyId));
+//        companyInfo.setBonusOffers(bonusOfferService.getAllByCompanyId(companyId));
+//        return companyInfo;
+//    }
 
 }

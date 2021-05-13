@@ -1,6 +1,5 @@
 package com.moshecorp.universityunion.model.company;
 
-
 import com.moshecorp.universityunion.enums.Categories;
 import com.moshecorp.universityunion.model.abstarct.AbstractEntity;
 
@@ -17,7 +16,7 @@ public class Company extends AbstractEntity {
 
     private Long userId;
     private String name;
-    private Categories category;
+    private Long categoryId;
     private Timestamp creationDate;
     private Timestamp expirationDate;
     private Double targetSum;

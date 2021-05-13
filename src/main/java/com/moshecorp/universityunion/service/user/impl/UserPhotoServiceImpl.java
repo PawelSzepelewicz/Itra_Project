@@ -5,13 +5,14 @@ import com.moshecorp.universityunion.model.user.UserPhoto;
 import com.moshecorp.universityunion.repository.user.UserPhotoRepository;
 import com.moshecorp.universityunion.service.user.UserPhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import static java.lang.String.format;
-
+@Service
 public class UserPhotoServiceImpl implements UserPhotoService {
 
     private final UserPhotoRepository repository;
