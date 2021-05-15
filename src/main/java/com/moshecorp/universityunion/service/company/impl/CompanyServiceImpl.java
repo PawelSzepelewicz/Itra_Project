@@ -3,6 +3,7 @@ package com.moshecorp.universityunion.service.company.impl;
 import com.moshecorp.universityunion.model.company.Company;
 import com.moshecorp.universityunion.repository.company.CompanyRepository;
 import com.moshecorp.universityunion.service.company.CompanyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.awt.print.Pageable;
@@ -11,6 +12,7 @@ import java.util.List;
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
+    @Autowired
     CompanyRepository companyRepository;
 
     @Override

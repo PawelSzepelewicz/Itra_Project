@@ -3,12 +3,14 @@ package com.moshecorp.universityunion.service.company.impl;
 import com.moshecorp.universityunion.model.company.News;
 import com.moshecorp.universityunion.repository.company.NewsRepository;
 import com.moshecorp.universityunion.service.company.NewsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class NewsServiceImpl implements NewsService {
 
+    @Autowired
     NewsRepository newsRepository;
 
     @Override
