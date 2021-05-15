@@ -6,4 +6,6 @@ public interface BonusOfferService {
 
     void saveBonusOffer(BonusOffer bonusOffer); //utw
 
+    BonusOffer getById(Long id); //utw
+
 }

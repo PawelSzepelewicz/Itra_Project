@@ -4,10 +4,7 @@ import com.moshecorp.universityunion.model.common.Tags;
 import com.moshecorp.universityunion.service.common.TagsService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,14 +16,19 @@ public class TagsController {
     @Autowired
     TagsService service;
 
-    @GetMapping("/get")
+    @GetMapping("/get")             //utw
     List<Tags> getAllTags(){      // утверждено
         return service.getAllTags();
     }
 
     @PostMapping("/save")
-    List<Tags> saveNewTagAndReturnAllTags(String tag){   // утверждено
+    List<Tags> saveNewTagAndReturnAllTags(@RequestBody String tag){   // утверждено
         service.saveNewTag(tag);
         return service.getAllTags();
+    }
+
+    @PostMapping("/search")
+    List<Tags> getTagsListStartsWith(@RequestBody String start){   // утверждено
+        return service.getTagsListStartsWith(start);
     }
 }

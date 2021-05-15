@@ -16,4 +16,9 @@ public class BonusOfferServiceImpl implements BonusOfferService {
     public void saveBonusOffer(BonusOffer bonusOffer) { //utw
         bonusOfferRepository.save(bonusOffer);
     }
+
+    @Override
+    public BonusOffer getById(Long id) {     //utw
+        return bonusOfferRepository.getById(id);
+    }
 }

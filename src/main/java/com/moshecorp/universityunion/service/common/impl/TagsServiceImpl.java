@@ -29,4 +29,9 @@ public class TagsServiceImpl implements TagsService {
     public void saveNewTag(String tag) { //utw
         tagsRepository.save(new Tags(tag));
     }
+
+    @Override
+    public List<Tags> getTagsListStartsWith(String start) {    //utv
+        return tagsRepository.getTagsByTagStartingWith(start + "%");
+    }
 }

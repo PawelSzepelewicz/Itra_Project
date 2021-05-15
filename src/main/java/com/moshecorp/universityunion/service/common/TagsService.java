@@ -12,4 +12,6 @@ public interface TagsService {
 
     void saveNewTag(String tag); //utw
 
+    List<Tags> getTagsListStartsWith(String start); //utw
+
 }
