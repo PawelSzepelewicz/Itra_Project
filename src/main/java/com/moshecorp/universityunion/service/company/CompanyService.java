@@ -1,10 +1,7 @@
 package com.moshecorp.universityunion.service.company;
 
-import com.moshecorp.universityunion.enums.Categories;
 import com.moshecorp.universityunion.model.company.Company;
 
-import java.awt.print.Pageable;
-import java.sql.Timestamp;
 import java.util.List;
 
 public interface CompanyService {
@@ -12,6 +9,8 @@ public interface CompanyService {
     Company getById(Long id);
 
     List<Company> getAllByCategoryId(Long categoryId);
+
+    Company saveNewCompany(Company company);  // utw
 
 //    List<Company> getAllByUserId(Long userId);
 //

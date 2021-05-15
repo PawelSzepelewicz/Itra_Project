@@ -1,6 +1,5 @@
 package com.moshecorp.universityunion.model.company;
 
-import com.moshecorp.universityunion.enums.Categories;
 import com.moshecorp.universityunion.model.abstarct.AbstractEntity;
 
 import lombok.Data;

@@ -21,7 +21,7 @@ public class UserBonusesController {
 
     @PostMapping("/getBonuses")
     public List<BonusOffer> getBonusOfferListByUserId(@RequestBody Long userId) {
-        return service.getBonusOfferListByUserId(userId);
+         return service.getBonusOfferListByUserId(userId);
     }
 
     @PostMapping("/setUserBonusToDB")

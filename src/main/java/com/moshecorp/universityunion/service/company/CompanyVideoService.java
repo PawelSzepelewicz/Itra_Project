@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface CompanyVideoService {
 
-    List<CompanyVideo> getAllByCompanyId(Long id);
-    CompanyVideo getById(Long id);
+    void saveNewCompanyVideo(CompanyVideo companyVideo);
 
 }

@@ -12,6 +12,6 @@ import java.util.List;
 public interface UserBonusesRepository extends JpaRepository<UserBonuses, Long> {
 
     @Query(value = "select bonusOfferId from UserBonuses where userId = :userId")
-    List<UserBonuses> getBonusOfferIdByUserId(@Param("userId") Long userId);
+    List<Long> getBonusOfferIdByUserId(@Param("userId") Long userId);
 
 }

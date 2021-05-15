@@ -13,4 +13,10 @@ public class Tags extends AbstractEntity {
 
     private String tag;
 
+    public Tags(String tag) {  //utw
+        this.tag = tag;
+    }
+
+    public Tags() { //utw
+    }
 }

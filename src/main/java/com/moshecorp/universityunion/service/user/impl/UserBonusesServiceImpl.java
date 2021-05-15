@@ -24,14 +24,9 @@ public class UserBonusesServiceImpl implements UserBonusesService {
     @Override
     public List<BonusOffer> getBonusOfferListByUserId(Long userId) {
         List<BonusOffer> bonusOfferList = new ArrayList<>();
-        List<UserBonuses> bonusOfferIdList = userBonusesRepository.getBonusOfferIdByUserId(userId);
-        bonusOfferIdList.forEach(bonus -> {
-            BonusOffer bonusOffer = new BonusOffer();
-            bonusOffer.setId(bonus.getBonusOfferId());
-            bonusOffer.setCompanyId(bonusOfferService.getCompanyIdById(bonus.getBonusOfferId()));
-            bonusOffer.setTitle(bonusOfferService.getTitleById(bonus.getBonusOfferId()));
-            bonusOffer.setDescription(bonusOfferService.getDescriptionById(bonus.getBonusOfferId()));
-            bonusOffer.setBonusSum(bonusOfferService.getBonusSumById(bonus.getBonusOfferId()));
+        List<Long> bonusOfferIds = userBonusesRepository.getBonusOfferIdByUserId(userId);
+        bonusOfferIds.forEach(bonusId -> {
+            BonusOffer bonusOffer = bonusOfferService.getById(bonusId);
             bonusOfferList.add(bonusOffer);
         });
         return bonusOfferList;

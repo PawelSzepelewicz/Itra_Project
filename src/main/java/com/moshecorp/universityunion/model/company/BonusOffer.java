@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Table(name = "bonus_offer")
 public class BonusOffer extends AbstractEntity {
 
-    private Long id;
     private Long companyId;
     private String title;
     private String description;

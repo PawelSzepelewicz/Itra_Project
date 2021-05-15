@@ -23,6 +23,11 @@ public class CompanyServiceImpl implements CompanyService {
         return companyRepository.getAllByCategoryId(categoryId);
     }
 
+    @Override
+    public Company saveNewCompany(Company company) {
+        return companyRepository.save(company);
+    }
+
 //    @Override
 //    public List<Company> getAllByUserId(Long userId) {
 //        return companyRepository.getAllByUserId(userId);

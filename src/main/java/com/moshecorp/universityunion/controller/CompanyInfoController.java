@@ -1,6 +1,5 @@
 package com.moshecorp.universityunion.controller;
 
-import com.moshecorp.universityunion.model.company.CompanyInfo;
 import com.moshecorp.universityunion.service.company.CompanyInfoService;
 import com.moshecorp.universityunion.service.company.impl.CompanyInfoServiceImpl;
 import lombok.AllArgsConstructor;

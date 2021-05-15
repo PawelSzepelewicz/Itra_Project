@@ -42,4 +42,9 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void saveCompanyPhotos(List<CompanyPhoto> companyPhotoList) {
+
+    }
 }

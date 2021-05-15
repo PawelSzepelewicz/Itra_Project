@@ -5,13 +5,15 @@ import com.moshecorp.universityunion.repository.common.CategoryRepository;
 import com.moshecorp.universityunion.service.common.CategoryService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
     CategoryRepository categoryRepository;
 
     @Override
-    public Category getCategoryName() {
-        return categoryRepository.getCategoryName();
+    public List<Category> getCategoriesList() {  //utw
+        return categoryRepository.findAll();
     }
 }
