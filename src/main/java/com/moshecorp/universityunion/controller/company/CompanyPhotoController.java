@@ -20,7 +20,7 @@ public class CompanyPhotoController {
 //        service.sendPhotoToCloudStorage();
 //    }
 
-    @PostMapping(value = "/save/{id}", consumes = "multipart/form-data")
+    @PostMapping(value = "/save/{id}", consumes = "multipart/form-data") //utw
     public void saveCompanyPhoto(@RequestBody MultipartFile companyPhoto, @PathVariable("id") Long companyId) {
             service.sendPhotoToCloudStorage(companyPhoto, companyId);
 //            companyPhoto.transferTo(Path.of("C:/Users/misha/OneDrive/resources/" + companyPhoto.getOriginalFilename()));

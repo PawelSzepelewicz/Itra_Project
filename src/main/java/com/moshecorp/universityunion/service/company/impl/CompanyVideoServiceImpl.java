@@ -13,7 +13,7 @@ public class CompanyVideoServiceImpl implements CompanyVideoService {
     CompanyVideoRepository companyVideoRepository;
 
     @Override
-    public void saveNewCompanyVideo(CompanyVideo companyVideo) { //utw
+    public void saveCompanyVideo(CompanyVideo companyVideo) { //utw
         companyVideoRepository.save(companyVideo);
     }
 }

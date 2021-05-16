@@ -18,7 +18,7 @@ public class CompanyVideoController {
     private final CompanyVideoService service;
 
     @PostMapping("/save")
-    public void saveNewCompanyVideo(@RequestBody CompanyVideo companyVideo) { //utw
-        service.saveNewCompanyVideo(companyVideo);
+    public void saveCompanyVideo(@RequestBody CompanyVideo companyVideo) { //utw
+        service.saveCompanyVideo(companyVideo);
     }
 }
