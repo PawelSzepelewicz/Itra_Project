@@ -20,6 +20,6 @@ public interface UserService {
 
    User update(User user); //utw
 
-   String getFullName(Long userId); //utw
+   String getFullName(Long id); //utw
 
 }

@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String getFullName(Long userId) {  //utw
-        return userRepository.getById(userId).getFirstName() + userRepository.getById(userId).getLastName();
+    public String getFullName(Long id) {  //utw
+        return userRepository.getById(id).getFirstName() + " " + userRepository.getById(id).getLastName();
     }
 }

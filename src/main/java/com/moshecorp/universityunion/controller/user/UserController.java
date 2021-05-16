@@ -53,8 +53,8 @@ public class UserController {
     }
 
     @PostMapping("/getFullName")
-    public String getFullName(@RequestBody Long userId) {  //utw
-        return service.getFullName(userId);
+    public String getFullName(@RequestBody Long id) {  //utw
+        return service.getFullName(id);
     }
 
 }
