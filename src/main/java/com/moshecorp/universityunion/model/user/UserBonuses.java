@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "user_photo")
+@Table(name = "user_bonuses")
 public class UserBonuses extends AbstractEntity {
 
     private Long userId;

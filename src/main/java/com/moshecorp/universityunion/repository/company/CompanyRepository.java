@@ -1,14 +1,9 @@
 package com.moshecorp.universityunion.repository.company;
 
-import com.moshecorp.universityunion.enums.Categories;
 import com.moshecorp.universityunion.model.company.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.awt.print.Pageable;
-import java.sql.Timestamp;
 import java.util.List;
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, Long> {
@@ -17,8 +12,8 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
 
     List<Company> getAllByCategoryId(Long categoryId);
 
-    @Query(value = "update Company set currentSum = :currentSum + :addSum")
-    void updateCurrentSum(@Param("currentSum") Double currentSum, @Param("addSum") Double addSum);
+//    @Query(value = "update Company set currentSum = :currentSum + :addSum")
+//    void updateCurrentSum(@Param("currentSum") Double currentSum, @Param("addSum") Double addSum);
 
 //    List<Company> getAllByCategory(Categories category);
 //

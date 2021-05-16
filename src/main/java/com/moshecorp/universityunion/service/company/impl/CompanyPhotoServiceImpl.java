@@ -5,6 +5,7 @@ import com.moshecorp.universityunion.model.company.CompanyPhoto;
 import com.moshecorp.universityunion.repository.company.CompanyPhotoRepository;
 import com.moshecorp.universityunion.service.company.CompanyPhotoService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,6 +23,7 @@ import static java.lang.String.format;
 @AllArgsConstructor
 public class CompanyPhotoServiceImpl implements CompanyPhotoService {
 
+    @Autowired
     CompanyPhotoRepository companyPhotoRepository;
 
     @Override
@@ -44,5 +46,10 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void saveCompanyPhotos(List<CompanyPhoto> companyPhotoList) {
+
     }
 }

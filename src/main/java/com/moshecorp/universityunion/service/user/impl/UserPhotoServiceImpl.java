@@ -15,7 +15,8 @@ import static java.lang.String.format;
 @Service
 public class UserPhotoServiceImpl implements UserPhotoService {
 
-    private final UserPhotoRepository repository;
+    @Autowired
+    UserPhotoRepository repository;
 
     public UserPhotoServiceImpl(UserPhotoRepository repository) {
         this.repository = repository;

@@ -18,7 +18,8 @@ public class CommentsServiceImpl implements CommentsService {
 
     @Autowired
     private CommentsRepository commentsRepository;
-    private final LikesService likesService = new LikesServiceImpl();
+    @Autowired
+    private LikesService likesService;
 
     @Override
     public void setCommentToDatabase(Comments comments) {

@@ -8,8 +8,4 @@ import java.util.List;
 @Repository
 public interface CompanyVideoRepository extends JpaRepository<CompanyVideo, Long> {
 
-    List<CompanyVideo> getAllByCompanyId(Long companyId);
-
-    CompanyVideo getById(Long id);
-
 }

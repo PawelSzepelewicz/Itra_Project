@@ -2,8 +2,10 @@ package com.moshecorp.universityunion.service.common;
 
 import com.moshecorp.universityunion.model.common.Category;
 
+import java.util.List;
+
 public interface CategoryService {
 
-    Category getCategoryName();
+    List<Category> getCategoriesList(); // utw
 
 }

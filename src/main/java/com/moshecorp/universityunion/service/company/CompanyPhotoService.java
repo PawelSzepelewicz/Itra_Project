@@ -1,5 +1,6 @@
 package com.moshecorp.universityunion.service.company;
 
+import com.moshecorp.universityunion.model.company.Company;
 import com.moshecorp.universityunion.model.company.CompanyPhoto;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,4 +12,5 @@ public interface CompanyPhotoService {
 
     void sendPhotoToCloudStorage(MultipartFile file, Long companyId);
 
+    void saveCompanyPhotos(List<CompanyPhoto> companyPhotoList);
 }
