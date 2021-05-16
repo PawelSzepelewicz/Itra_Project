@@ -14,4 +14,12 @@ public class CompanyPhoto extends AbstractEntity {
     private Long companyId;
     private String photoUrl;
 
+    public CompanyPhoto(Long companyId, String photoUrl) {
+        this.companyId = companyId;
+        this.photoUrl = photoUrl;
+    }
+
+    public CompanyPhoto() {
+
+    }
 }

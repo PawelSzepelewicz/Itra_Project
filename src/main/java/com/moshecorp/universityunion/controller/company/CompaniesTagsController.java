@@ -24,12 +24,12 @@ public class CompaniesTagsController {
         return service.getCompanyIdById(id);
     }
 
-    @PostMapping("/save")
-    public void getCompanyTags(@RequestBody List<CompanyTags> companyTagsList) { //utw
-        service.saveCompanyTagsList(companyTagsList);
-    }
+//    @PostMapping("/save")
+//    public void saveCompanyTags(@RequestBody List<CompanyTags> companyTagsList) { //utw
+//        service.saveCompanyTagsList(companyTagsList);
+//    }
 
-    @PostMapping("/saveCompaniesTags")
+    @PostMapping("/save")
     void saveTagsList(@RequestBody CompanyIdAndTagsList companyIdAndTagsList){   // утверждено
        service.saveTagsList(companyIdAndTagsList);
     }

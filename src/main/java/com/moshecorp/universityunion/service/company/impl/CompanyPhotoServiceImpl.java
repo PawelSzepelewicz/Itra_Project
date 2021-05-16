@@ -41,8 +41,7 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
         try {
             Map resultUrl = cloudinary.uploader().upload(file.getBytes(),
                     Map.of("public_id", format("company_%s/%s", companyId, file.getOriginalFilename())));
-            System.out.println(resultUrl.get("secure_url"));
-
+            companyPhotoRepository.save(new CompanyPhoto(companyId, resultUrl.get("secure_url").toString()));
         } catch (IOException e) {
             e.printStackTrace();
         }
