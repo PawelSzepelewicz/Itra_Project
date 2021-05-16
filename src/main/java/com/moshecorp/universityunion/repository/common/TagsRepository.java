@@ -16,4 +16,6 @@ public interface TagsRepository extends JpaRepository<Tag, Long> {
     @Query(value = "select * from tags where tags.tag like :start limit 5", nativeQuery = true)
     List<Tag> getTagsByTagStartingWith(@Param("start") String start); //utw
 
+    Tag getById(Long id); //utw
 }
+
