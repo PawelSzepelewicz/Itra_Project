@@ -23,4 +23,5 @@ public class RatingController {
     public void saveRating(@RequestBody Rating rating) { //utw
         service.saveRatingToDB(rating);
     }
+
 }

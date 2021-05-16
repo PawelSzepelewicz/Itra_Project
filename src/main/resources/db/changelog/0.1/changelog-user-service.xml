@@ -11,10 +11,10 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="user_pkey" nullable="false"/>
             </column>
-            <column name="firstName" type="varchar">
+            <column name="first_name" type="varchar">
                 <constraints nullable="false"/>
             </column>
-            <column name="lastName" type="varchar">
+            <column name="last_name" type="varchar">
                 <constraints nullable="false"/>
             </column>
             <column name="email" type="varchar">

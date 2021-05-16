@@ -1,13 +1,12 @@
 package com.moshecorp.universityunion.controller.company;
 
+import com.moshecorp.universityunion.model.CompanyPreview;
 import com.moshecorp.universityunion.model.company.Company;
+import com.moshecorp.universityunion.model.company.Rating;
 import com.moshecorp.universityunion.service.company.CompanyService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +21,15 @@ public class CompanyController {
     public List<Company> getAllByCategoryId(@RequestBody Long categoryId) {
         return service.getAllByCategoryId(categoryId);
     }
+
+    @GetMapping("/getByRating")
+    public List<CompanyPreview> getTopFiveByRating() { //utw
+        return service.getTopFiveByRating();
+    }
+
+    @GetMapping("/getByTime")
+    public List<CompanyPreview> getTopFiveByCreationDate() { //utw
+        return service.getTopFiveByCreationDate();
+    }
+
 }

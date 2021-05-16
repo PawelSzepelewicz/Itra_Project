@@ -1,19 +1,28 @@
 package com.moshecorp.universityunion.service.company.impl;
 
+import com.moshecorp.universityunion.model.AverageCompanyRating;
+import com.moshecorp.universityunion.model.CompanyPreview;
 import com.moshecorp.universityunion.model.company.Company;
 import com.moshecorp.universityunion.repository.company.CompanyRepository;
+import com.moshecorp.universityunion.repository.company.RatingRepository;
+import com.moshecorp.universityunion.service.company.CompanyPhotoService;
 import com.moshecorp.universityunion.service.company.CompanyService;
+import com.moshecorp.universityunion.utils.AverageRatingComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
-import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
     @Autowired
     CompanyRepository companyRepository;
+    @Autowired
+    RatingRepository ratingRepository;
+    @Autowired
+    CompanyPhotoService companyPhotoService;
 
     @Override
     public Company getById(Long id) {
@@ -30,57 +39,50 @@ public class CompanyServiceImpl implements CompanyService {
         return companyRepository.save(company);
     }
 
-//    @Override
-//    public List<Company> getAllByUserId(Long userId) {
-//        return companyRepository.getAllByUserId(userId);
-//    }
-//
-//    @Override
-//    public String getNameById(Long id) {
-//        return companyRepository.getNameById(id);
-//    }
-//
-//    @Override
-//    public List<String> getNameByUserId(Long userId) {
-//        return companyRepository.getNameByUserId(userId);
-//    }
-//
-//    @Override
-//    public List<Company> getAllByCategory(Categories category) {
-//        return companyRepository.getAllByCategory(category);
-//    }
-//
-//    @Override
-//    public List<String> getNameByCategory(Categories category) {
-//        return companyRepository.getNameByCategory(category);
-//    }
-//    @Override
-//    public List<Company> getNameListOrderByDate(Pageable paging){
-//    Integer pageNo = 0;
-//    Integer pageSize = 10;
-//    String sortBy = "creationDate";
-//    Pageable pag = (Pageable) PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
-//    List<Company> page = companyRepository.getNameListOrderByDate(pag);
-//    return page;
-//    }
-//
-//    @Override
-//    public Double getTargetSumById(Long id) {
-//        return companyRepository.getTargetSumById(id);
-//    }
-//
-//    @Override
-//    public Double getCurrentSumById(Long id) {
-//        return companyRepository.getCurrentSumById(id);
-//    }
-//
-//    @Override
-//    public Timestamp getExpirationDateById(Long id) {
-//        return companyRepository.getExpirationDateById(id);
-//    }
-//
-//    @Override
-//    public Timestamp getCreationDateById(Long id) {
-//        return companyRepository.getCreationDateById(id);
-//    }
+    @Override
+    public List<CompanyPreview> getTopFiveByRating() {
+        List<Long> companyIdsList = companyRepository.getIdsList();
+        List<AverageCompanyRating> acrList = new ArrayList<>();
+        companyIdsList.forEach(cid -> {
+            AverageCompanyRating acr = new AverageCompanyRating(cid, ratingRepository.getAverageRatingByCompanyId(cid));
+            acrList.add(acr);
+        });
+        acrList.sort(new AverageRatingComparator());
+        List<CompanyPreview> companyPreviews = new ArrayList<>();
+        acrList.subList(0, Math.min(acrList.size(), 5)).forEach(acr -> {
+            CompanyPreview cp = new CompanyPreview();
+            Company company = companyRepository.getById(acr.getCompanyId());
+            cp.setId(company.getId());
+            cp.setAverageRating(acr.getAverageRating());
+            cp.setTitle(company.getName());
+            cp.setDescription(company.getDescription());
+            cp.setPhotoUrl(companyPhotoService.getAllByCompanyId(company.getId()).get(0).getPhotoUrl());
+            cp.setCurrentSum(company.getCurrentSum());
+            cp.setTargetSum(company.getTargetSum());
+            cp.setExpirationDate(company.getExpirationDate());
+            companyPreviews.add(cp);
+        });
+        return companyPreviews;
+    }
+
+    @Override
+    public List<CompanyPreview> getTopFiveByCreationDate() {
+        List<Company> topCompanyList = companyRepository.getTopByCreationDate();
+        List<CompanyPreview> companyPreviews = new ArrayList<>();
+        CompanyPreview cp = new CompanyPreview();
+        topCompanyList.forEach(tcl -> {
+            cp.setId(tcl.getId());
+            cp.setAverageRating(ratingRepository.getAverageRatingByCompanyId(tcl.getId()));
+            cp.setTitle(tcl.getName());
+            cp.setDescription(tcl.getDescription());
+            cp.setPhotoUrl(companyPhotoService.getAllByCompanyId(tcl.getId()).get(0).getPhotoUrl());
+            cp.setCurrentSum(tcl.getCurrentSum());
+            cp.setTargetSum(tcl.getTargetSum());
+            cp.setExpirationDate(tcl.getExpirationDate());
+            companyPreviews.add(cp);
+        });
+        return companyPreviews;
+    }
+
+
 }
