@@ -57,4 +57,9 @@ public class UserServiceImpl implements UserService {
     public User update(User user) {  //utw
         return userRepository.save(user);
     }
+
+    @Override
+    public String getFullName(Long userId) {  //utw
+        return userRepository.getById(userId).getFirstName() + userRepository.getById(userId).getLastName();
+    }
 }

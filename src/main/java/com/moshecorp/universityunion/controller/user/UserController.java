@@ -52,4 +52,9 @@ public class UserController {
         return uiSettingsService.changeUiSettings(uiSettings);
     }
 
+    @PostMapping("/getFullName")
+    public String getFullName(@RequestBody Long userId) {  //utw
+        return service.getFullName(userId);
+    }
+
 }

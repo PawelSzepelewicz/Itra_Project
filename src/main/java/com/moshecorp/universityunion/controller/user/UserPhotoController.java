@@ -19,7 +19,9 @@ public class UserPhotoController {
 
     @PostMapping(value = "/save/{id}", consumes = "multipart/form-data") //utw
     public void saveUserPhoto(@RequestBody MultipartFile userPhoto, @PathVariable("id") Long companyId) {
+        if (userPhoto != null){
         service.sendPhotoToCloudStorage(userPhoto, companyId);
+        }
     }
 
     @PostMapping("/getListById") //utw
