@@ -25,6 +25,9 @@ public class CompanyCreationServiceImpl implements CompanyCreationService {
         Timestamp ts = Timestamp.from(Instant.now());
         newCompany.setCreationDate(ts);
         newCompany.setExpirationDate(new Timestamp(Long.parseLong(companyCreation.getExpirationDate())));
+        newCompany.setTargetSum(companyCreation.getTargetSum());
+        newCompany.setCurrentSum(0.0);
+        newCompany.setDescription(companyCreation.getDescription());
         return companyService.saveNewCompany(newCompany).getId();
     }
 }
