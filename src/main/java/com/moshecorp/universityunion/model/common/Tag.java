@@ -9,14 +9,14 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name = "tags")
-public class Tags extends AbstractEntity {
+public class Tag extends AbstractEntity {
 
     private String tag;
 
-    public Tags(String tag) {  //utw
+    public Tag(String tag) {  //utw
         this.tag = tag;
     }
 
-    public Tags() { //utw
+    public Tag() { //utw
     }
 }

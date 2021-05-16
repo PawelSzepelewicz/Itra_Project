@@ -1,5 +1,6 @@
 package com.moshecorp.universityunion.controller.company;
 
+import com.moshecorp.universityunion.model.CompanyIdAndTagsList;
 import com.moshecorp.universityunion.model.company.CompanyTags;
 import com.moshecorp.universityunion.service.company.CompaniesTagsService;
 import lombok.AllArgsConstructor;
@@ -28,4 +29,8 @@ public class CompaniesTagsController {
         service.saveCompanyTagsList(companyTagsList);
     }
 
+    @PostMapping("/saveCompaniesTags")
+    void saveTagsList(@RequestBody CompanyIdAndTagsList companyIdAndTagsList){   // утверждено
+       service.saveTagsList(companyIdAndTagsList);
+    }
 }

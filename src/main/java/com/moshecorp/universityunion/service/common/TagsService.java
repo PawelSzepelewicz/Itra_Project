@@ -1,17 +1,17 @@
 package com.moshecorp.universityunion.service.common;
 
-import com.moshecorp.universityunion.model.common.Tags;
+import com.moshecorp.universityunion.model.common.Tag;
 
 import java.util.List;
 
 public interface TagsService {
 
-    List<Tags> getAllTags();   // утверждено
+    List<Tag> getAllTags();   // утверждено
 
-    Tags getById(Long id);
+    Tag getById(Long id);
 
     void saveNewTag(String tag); //utw
 
-    List<Tags> getTagsListStartsWith(String start); //utw
+    List<Tag> getTagsListStartsWith(String start); //utw
 
 }
