@@ -31,12 +31,11 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
         return companyPhotoRepository.getAllByCompanyId(companyId);
     }
 
-    public void sendPhotoToCloudStorage(MultipartFile file, Long companyId) {
+    public void sendPhotoToCloudStorage(MultipartFile file, Long companyId) { //utw
         Map<String, String> credentials = new HashMap<>();
         credentials.put("cloud_name", "itracourse");
         credentials.put("api_key", "852218272247124");
         credentials.put("api_secret", "2MPV2kthcxl9bbVpf_ExI6G-Vj4");
-
         Cloudinary cloudinary = new Cloudinary(credentials);
         try {
             Map resultUrl = cloudinary.uploader().upload(file.getBytes(),

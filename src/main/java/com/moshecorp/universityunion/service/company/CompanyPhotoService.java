@@ -9,7 +9,7 @@ public interface CompanyPhotoService {
 
     List<CompanyPhoto> getAllByCompanyId(Long companyId);
 
-    void sendPhotoToCloudStorage(MultipartFile file, Long companyId);
+    void sendPhotoToCloudStorage(MultipartFile file, Long companyId); //utw
 
     void saveCompanyPhotos(List<CompanyPhoto> companyPhotoList);
 }

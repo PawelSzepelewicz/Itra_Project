@@ -11,25 +11,19 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="user_pkey" nullable="false"/>
             </column>
-            <column name="public_id" type="varchar">
+            <column name="firstName" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastName" type="varchar">
                 <constraints nullable="false"/>
             </column>
             <column name="email" type="varchar">
                 <constraints nullable="false"/>
             </column>
-            <column name="name" type="varchar">
-                <constraints nullable="false"/>
-            </column>
             <column name="password" type="varchar">
                 <constraints nullable="true"/>
             </column>
-            <column name="roles" type="varchar">
-                <constraints nullable="false"/>
-            </column>
-            <column name="gender" type="varchar">
-                <constraints nullable="false"/>
-            </column>
-            <column name="locale" type="varchar">
+            <column name="role" type="varchar">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -57,6 +51,9 @@
                 <constraints nullable="false"/>
             </column>
             <column name="theme" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="varchar">
                 <constraints nullable="false"/>
             </column>
         </createTable>

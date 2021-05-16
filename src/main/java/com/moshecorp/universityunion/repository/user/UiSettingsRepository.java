@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UiSettingsRepository extends JpaRepository<UiSettings, Long> {
 
+    UiSettings getByUserId(Long userId);
 
 }

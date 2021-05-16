@@ -4,15 +4,10 @@ import com.moshecorp.universityunion.model.UiComment;
 import com.moshecorp.universityunion.model.UserAndCompanyIds;
 import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.comments.Likes;
-import com.moshecorp.universityunion.repository.comments.CommentsRepository;
-import com.moshecorp.universityunion.repository.comments.LikesRepository;
 import com.moshecorp.universityunion.service.UiCommentService;
 import com.moshecorp.universityunion.service.comments.CommentsService;
 import com.moshecorp.universityunion.service.comments.LikesService;
-import com.moshecorp.universityunion.service.comments.impl.CommentsServiceImpl;
-import com.moshecorp.universityunion.service.comments.impl.LikesServiceImpl;
 import com.moshecorp.universityunion.service.user.UserService;
-import com.moshecorp.universityunion.service.user.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +26,7 @@ public class UiCommentServiceImpl implements UiCommentService {
     LikesService likesService;
 
     @Override
-    public List<UiComment> getUiCommentsList(UserAndCompanyIds ids) {
+    public List<UiComment> getUiCommentsList(UserAndCompanyIds ids) {   //utw
 
         List<UiComment> uiCommentList = new ArrayList<>();
         List<Comments> commentsList = commentsService.getByCompanyId(ids.getCompanyId());
@@ -39,7 +34,7 @@ public class UiCommentServiceImpl implements UiCommentService {
             UiComment uiComment = new UiComment();
             uiComment.setId(comment.getId());
             uiComment.setContent(comment.getText());
-            uiComment.setAuthorName(userService.getUserNameById(comment.getUserId()));
+            uiComment.setAuthorName(userService.getUserFirstNameById(comment.getUserId()));
             uiComment.setCreationDatetime(comment.getCommentsDatetime());
             List<Likes> likesList = likesService.getListOfLikesByCommentId(comment.getId());
             uiComment.setLikesCount(likesList.size());

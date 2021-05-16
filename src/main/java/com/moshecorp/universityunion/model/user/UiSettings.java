@@ -14,7 +14,18 @@ import javax.persistence.Table;
 public class UiSettings extends AbstractEntity {
 
     private Long userId;
-    private Language language;
-    private Theme theme;
+    private String language;
+    private String theme;
+    private String role;
 
+    public UiSettings(Long userId, String language, String theme, String role) {
+        this.userId = userId;
+        this.language = language;
+        this.theme = theme;
+        this.role = role;
+    }
+
+    public UiSettings() {
+
+    }
 }

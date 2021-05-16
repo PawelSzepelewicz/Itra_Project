@@ -1,15 +1,21 @@
 package com.moshecorp.universityunion.service.user;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Service;
+import com.moshecorp.universityunion.model.Login;
+import com.moshecorp.universityunion.model.user.UiSettings;
+import com.moshecorp.universityunion.model.user.User;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<String> getNameList();
+   String getUserFirstNameById(Long is);  //utw
 
-    String getUserNameById(Long id);
+   UiSettings register(User user);   //utw
+
+   UiSettings login(Login login);  //utw
+
+   void block(Long userId);  //utw
+
+   List<User> getAllUsers(); //utw
 
 }

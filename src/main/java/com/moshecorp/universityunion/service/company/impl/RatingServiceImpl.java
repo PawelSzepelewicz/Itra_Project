@@ -13,8 +13,18 @@ public class RatingServiceImpl implements RatingService {
     RatingRepository ratingRepository;
 
     @Override
-    public Rating getAverageRatingByCompanyId(Long companyId) {
+    public Double getAverageRatingByCompanyId(Long companyId) {  //utw
         return ratingRepository.getAverageRatingByCompanyId(companyId);
+    }
+
+    @Override
+    public Rating getByCompanyIdAndUserId(Long companyId, Long userId) {  //utw
+        return ratingRepository.getByCompanyIdAndUserId(companyId, userId);
+    }
+
+    @Override
+    public void saveRatingToDB(Rating rating) {   //utw
+        ratingRepository.save(rating);
     }
 
 }

@@ -4,6 +4,10 @@ import com.moshecorp.universityunion.model.company.Rating;
 
 public interface RatingService {
 
-    Rating getAverageRatingByCompanyId(Long companyId);
+    Double getAverageRatingByCompanyId(Long companyId);  //utw
+
+    Rating getByCompanyIdAndUserId(Long companyId, Long userId);  //utw
+
+    void saveRatingToDB(Rating rating);  //utw
 
 }

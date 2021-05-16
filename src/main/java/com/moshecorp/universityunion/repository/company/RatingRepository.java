@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 public interface RatingRepository extends JpaRepository<Rating, Long> {
 
     @Query(value = "select avg(ratingValue) from Rating where companyId = :companyId")
-    Rating getAverageRatingByCompanyId(@Param("companyId") Long companyId);
+    Double getAverageRatingByCompanyId(@Param("companyId") Long companyId);  //utw
+
+    Rating getByCompanyIdAndUserId(Long companyId, Long userId);   //utw
 
 }
