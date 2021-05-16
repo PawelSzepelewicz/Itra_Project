@@ -27,6 +27,11 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
     CompanyPhotoRepository companyPhotoRepository;
 
     @Override
+    public List<String> getPhotoUrlListByCompanyId(Long companyId) {
+        return (List<String>) companyPhotoRepository.getAllByCompanyId(companyId).stream().map(ph -> {return ph.getPhotoUrl();});
+    }
+
+    @Override
     public List<CompanyPhoto> getAllByCompanyId(Long companyId) {
         return companyPhotoRepository.getAllByCompanyId(companyId);
     }
@@ -39,7 +44,7 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
         Cloudinary cloudinary = new Cloudinary(credentials);
         try {
             Map resultUrl = cloudinary.uploader().upload(file.getBytes(),
-                    Map.of("public_id", format("company_%s/%s", companyId, file.getOriginalFilename())));
+                    Map.of("public_id", format("company/company_%s/%s", companyId, file.getOriginalFilename())));
             companyPhotoRepository.save(new CompanyPhoto(companyId, resultUrl.get("secure_url").toString()));
         } catch (IOException e) {
             e.printStackTrace();

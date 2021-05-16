@@ -27,4 +27,5 @@ public class UiRatingController {
     public UiRating getCompanyRating(@RequestBody UserAndCompanyIds ids) {   //utw
         return service.getRating(ids);
     }
+
 }

@@ -49,7 +49,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers() {  //utw
         return userRepository.findAll();
+    }
+
+    @Override
+    public User update(User user) {  //utw
+        return userRepository.save(user);
     }
 }

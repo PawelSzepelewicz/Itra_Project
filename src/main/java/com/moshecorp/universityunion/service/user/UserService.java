@@ -18,4 +18,6 @@ public interface UserService {
 
    List<User> getAllUsers(); //utw
 
+   User update(User user); //utw
+
 }
