@@ -6,6 +6,7 @@ import com.moshecorp.universityunion.repository.company.CompanyPhotoRepository;
 import com.moshecorp.universityunion.service.company.CompanyPhotoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import java.io.File;
@@ -13,6 +14,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static java.lang.String.format;
 
 @Service
 @Transactional
@@ -26,7 +29,7 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
         return companyPhotoRepository.getAllByCompanyId(companyId);
     }
 
-    public void sendPhotoToCloudStorage() {
+    public void sendPhotoToCloudStorage(MultipartFile file, Long companyId) {
         Map<String, String> credentials = new HashMap<>();
         credentials.put("cloud_name", "itracourse");
         credentials.put("api_key", "852218272247124");
@@ -34,8 +37,8 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
 
         Cloudinary cloudinary = new Cloudinary(credentials);
         try {
-            Map resultUrl = cloudinary.uploader().upload(new File("C:/Users/pasha/Pictures/Screenshots/testImg.png"),
-                    Map.of("public_id", "test_img_002"));
+            Map resultUrl = cloudinary.uploader().upload(file.getBytes(),
+                    Map.of("public_id", format("company_%s/%s", companyId, file.getOriginalFilename())));
             System.out.println(resultUrl.get("secure_url"));
 
         } catch (IOException e) {
