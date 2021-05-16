@@ -21,4 +21,9 @@ public class CompanyVideoController {
     public void saveCompanyVideo(@RequestBody CompanyVideo companyVideo) { //utw
         service.saveCompanyVideo(companyVideo);
     }
+
+    @PostMapping("/getByCompanyId")
+    public String getVideoByCompanyId(@RequestBody Long companyId) { //utw
+       return service.getVideoByCompanyId(companyId);
+    }
 }

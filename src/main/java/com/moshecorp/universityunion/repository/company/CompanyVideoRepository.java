@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface CompanyVideoRepository extends JpaRepository<CompanyVideo, Long> {
 
     @Query(value = "select videoUrl from CompanyVideo where companyId = :companyId")
-    String getVideoUrlByCompanyId(@Param("companyId") Long companyId);
+    String getVideoUrlByCompanyId(@Param("companyId") Long companyId);  //utw
 
 }
