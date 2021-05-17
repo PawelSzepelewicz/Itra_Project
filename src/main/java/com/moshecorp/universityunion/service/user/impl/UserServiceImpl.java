@@ -12,6 +12,12 @@ import com.moshecorp.universityunion.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.crypto.KeyGenerator;
+import javax.crypto.Mac;
+import javax.crypto.SecretKey;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.List;
 
 @Service
@@ -66,4 +72,16 @@ public class UserServiceImpl implements UserService {
     public String getFullName(Long id) {  //utw
         return userRepository.getById(id).getFirstName() + " " + userRepository.getById(id).getLastName();
     }
+
+    @Override
+    public String hashPassword(String password) throws NoSuchAlgorithmException {
+       return null;
+    }
+
+    @Override
+    public String getPasswordFromHash(String password) {
+        return null;
+    }
+
+
 }

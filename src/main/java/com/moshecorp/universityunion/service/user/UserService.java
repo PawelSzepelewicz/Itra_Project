@@ -4,6 +4,7 @@ import com.moshecorp.universityunion.model.Login;
 import com.moshecorp.universityunion.model.user.UiSettings;
 import com.moshecorp.universityunion.model.user.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public interface UserService {
@@ -21,5 +22,9 @@ public interface UserService {
    User update(User user); //utw
 
    String getFullName(Long id); //utw
+
+   String hashPassword(String password) throws NoSuchAlgorithmException;
+
+   String getPasswordFromHash(String password);
 
 }
