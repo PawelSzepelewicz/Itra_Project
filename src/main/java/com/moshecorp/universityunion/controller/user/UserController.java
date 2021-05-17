@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @PostMapping("/block")
-    public void block(@RequestBody Long userId) {  //utw
+    public void block(@RequestBody Long userId) {
         service.block(userId);
     }
 

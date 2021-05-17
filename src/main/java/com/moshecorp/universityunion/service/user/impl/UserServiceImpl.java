@@ -38,15 +38,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public UiSettings login(Login login) {  //utw
         User user = userRepository.getByEmailAndPassword(login.getEmail(), login.getPassword());
-        if(user.getRole() == Roles.USER_BLOCKED.name() && user.getRole() == Roles.USER_BLOCKED.name()) {
-            return null;
+        if(user.getRole() == Roles.USER.name() || user.getRole() == Roles.ADMIN.name()) {
+            return uiSettingsRepository.getByUserId(user.getId());
         }else{
-        return uiSettingsRepository.getByUserId(user.getId());
+            return null;
         }
     }
 
     @Override
-    public void block(Long userId) {  //utw
+    public void block(Long userId) {
         User user = userRepository.getById(userId);
         user.setRole(Roles.USER_BLOCKED.name());
         userRepository.save(user);
