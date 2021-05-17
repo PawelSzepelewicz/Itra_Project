@@ -13,6 +13,11 @@ public class CompanyVideoServiceImpl implements CompanyVideoService {
     CompanyVideoRepository companyVideoRepository;
 
     @Override
+    public CompanyVideo getByCompanyId(Long companyId) {  //utw
+        return companyVideoRepository.getByCompanyId(companyId);
+    }
+
+    @Override
     public String getVideoByCompanyId(Long companyId) {   //utw
         return companyVideoRepository.getVideoUrlByCompanyId(companyId);
     }
