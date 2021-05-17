@@ -43,7 +43,6 @@ public class CompanyInfoServiceImpl implements CompanyInfoService {
         companyInfo.setCompanyPhoto(companyPhotoService.getAllByCompanyId(ids.getCompanyId()));
         companyInfo.setCompanyVideo(companyVideoService.getByCompanyId(ids.getCompanyId()));
         companyInfo.setAverageRating(uiRatingService.getRating(ids).getAverageRating());
-        companyInfo.setUiCommentsAndLikes(uiCommentService.getUiCommentsList(ids));
         companyInfo.setCompanyTags(companiesTagsService.getTagsByCompanyId(ids.getCompanyId()));
         companyInfo.setCategoryName(categoryService.getCategoryNameById(companyInfo.getCompany().getCategoryId()));
 

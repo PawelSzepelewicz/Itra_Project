@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController()
 @RequestMapping("/company/bonusOffer")
 @AllArgsConstructor
@@ -20,5 +22,10 @@ public class BonusOfferController {
     @PostMapping("/save")
     public void setBonusOffer(@RequestBody BonusOffer bonusOffer) { //utw
         service.saveBonusOffer(bonusOffer);
+    }
+
+    @PostMapping("/getByCompanyId")
+    public List<BonusOffer> getByCompanyId(@RequestBody Long companyId) { //utw
+        return service.getAllByCompanyId(companyId);
     }
 }

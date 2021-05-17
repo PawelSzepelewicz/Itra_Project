@@ -12,4 +12,6 @@ public interface BonusOfferService {
 
     List<BonusOffer> getAllByCompanyId(Long companyId);  //utw
 
+
+
 }
