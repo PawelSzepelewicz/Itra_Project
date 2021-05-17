@@ -4,6 +4,7 @@ public enum Roles {
 
     ADMIN,
     USER_BLOCKED,
+    ADMIN_BLOCKED,
     USER;
 
 }

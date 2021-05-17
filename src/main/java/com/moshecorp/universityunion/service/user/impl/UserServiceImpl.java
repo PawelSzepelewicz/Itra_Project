@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UiSettings login(Login login) {  //utw
         User user = userRepository.getByEmailAndPassword(login.getEmail(), login.getPassword());
-        if(user.getRole() == "USER_BLOCKED" || user.getRole() == "ADMIN_BLOCKED"){
+        if(user.getRole() == Roles.USER_BLOCKED.name() && user.getRole() == Roles.USER_BLOCKED.name()) {
             return null;
         }else{
         return uiSettingsRepository.getByUserId(user.getId());
