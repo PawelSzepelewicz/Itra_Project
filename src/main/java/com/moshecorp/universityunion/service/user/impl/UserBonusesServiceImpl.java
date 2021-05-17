@@ -2,6 +2,7 @@ package com.moshecorp.universityunion.service.user.impl;
 
 import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.company.BonusOffer;
+import com.moshecorp.universityunion.model.company.Payments;
 import com.moshecorp.universityunion.model.user.UserBonuses;
 import com.moshecorp.universityunion.repository.company.BonusOfferRepository;
 import com.moshecorp.universityunion.repository.user.UserBonusesRepository;
@@ -33,10 +34,21 @@ public class UserBonusesServiceImpl implements UserBonusesService {
     }
 
     @Override
-    public void setUserBonusesToDatabase(Long userId, Long bonusOfferId) {
+    public void setUserBonusesToDatabase(Long userId, Long bonusOfferId) { //utw
         UserBonuses userBonuses = new UserBonuses();
         userBonuses.setUserId(userId);
         userBonuses.setBonusOfferId(bonusOfferId);
         userBonusesRepository.save(userBonuses);
+    }
+
+    @Override
+    public void setUserBonusesToDbByPayment(Payments payment) {
+        List<BonusOffer> bonusOfferList = bonusOfferService.getAllByCompanyId(payment.getCompanyId());
+        final Long[] bonusOfferId = {0L};
+        bonusOfferList.forEach(bo -> {
+            bonusOfferId[0] = payment.getPaymentSum() > bo.getBonusSum() ? bo.getId() : bonusOfferId[0];
+        });
+        Long boId = bonusOfferId[0];
+        setUserBonusesToDatabase(payment.getUserId(), boId);
     }
 }

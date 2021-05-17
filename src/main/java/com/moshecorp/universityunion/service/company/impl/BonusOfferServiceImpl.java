@@ -6,6 +6,8 @@ import com.moshecorp.universityunion.service.company.BonusOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BonusOfferServiceImpl implements BonusOfferService {
 
@@ -20,5 +22,10 @@ public class BonusOfferServiceImpl implements BonusOfferService {
     @Override
     public BonusOffer getById(Long id) {     //utw
         return bonusOfferRepository.getById(id);
+    }
+
+    @Override
+    public List<BonusOffer> getAllByCompanyId(Long companyId) {
+        return bonusOfferRepository.getAllByCompanyId(companyId);
     }
 }

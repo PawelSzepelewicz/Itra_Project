@@ -1,5 +1,6 @@
 package com.moshecorp.universityunion.controller.comments;
 
+import com.moshecorp.universityunion.model.UiComment;
 import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.service.comments.CommentsService;
 import com.moshecorp.universityunion.service.comments.impl.CommentsServiceImpl;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController()
 @RequestMapping("/comment")
 @AllArgsConstructor
@@ -19,8 +22,8 @@ public class CommentsController {
     private final CommentsService service;
 
     @PostMapping("/set")     //utw
-    public void test(@RequestBody Comments comments){
-        service.setCommentToDatabase(comments);
+    public List<UiComment> setNewComment(@RequestBody Comments comments){
+        return service.setCommentToDatabase(comments);
     }
 
 }

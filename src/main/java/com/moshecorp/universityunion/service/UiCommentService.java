@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface UiCommentService {
 
-    List<UiComment> getUiCommentsList(UserAndCompanyIds ids);
+    List<UiComment> getUiCommentsList(UserAndCompanyIds ids);  //utw
 
 }
