@@ -5,6 +5,7 @@ import com.moshecorp.universityunion.model.CompanyPreview;
 import com.moshecorp.universityunion.model.company.Company;
 import com.moshecorp.universityunion.repository.company.CompanyRepository;
 import com.moshecorp.universityunion.repository.company.RatingRepository;
+import com.moshecorp.universityunion.service.CompanyPreviewService;
 import com.moshecorp.universityunion.service.company.CompanyPhotoService;
 import com.moshecorp.universityunion.service.company.CompanyService;
 import com.moshecorp.universityunion.utils.AverageRatingComparator;
@@ -23,6 +24,8 @@ public class CompanyServiceImpl implements CompanyService {
     RatingRepository ratingRepository;
     @Autowired
     CompanyPhotoService companyPhotoService;
+    @Autowired
+    CompanyPreviewService companyPreviewService;
 
     @Override
     public Company getById(Long id) {
@@ -84,5 +87,15 @@ public class CompanyServiceImpl implements CompanyService {
         return companyPreviews;
     }
 
+    @Override
+    public List<CompanyPreview> getAllByUserId(Long userId) {
+        List<Company> companyList = companyRepository.getAllByUserId(userId);
+        List<CompanyPreview> companyPreviews = new ArrayList<>();
+        companyList.forEach(cmp -> {
+            CompanyPreview cp = companyPreviewService.getCompanyPreviewFromCompany(cmp);
+            companyPreviews.add(cp);
+        });
+        return companyPreviews;
+    }
 
 }

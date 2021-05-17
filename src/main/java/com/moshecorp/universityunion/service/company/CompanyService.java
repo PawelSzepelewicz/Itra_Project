@@ -17,6 +17,8 @@ public interface CompanyService {
 
     List<CompanyPreview> getTopFiveByCreationDate();
 
+    List<CompanyPreview> getAllByUserId(Long userId); //utw
+
 
 
 }

@@ -32,4 +32,9 @@ public class CompanyController {
         return service.getTopFiveByCreationDate();
     }
 
+    @PostMapping("/getAllByUserId")
+    public List<CompanyPreview> getAllByUserId(Long userId) { //utw
+        return service.getAllByUserId(userId);
+    }
+
 }

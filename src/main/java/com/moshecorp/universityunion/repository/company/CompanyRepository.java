@@ -13,6 +13,8 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
 
     List<Company> getAllByCategoryId(Long categoryId);
 
+    List<Company> getAllByUserId(Long categoryId);
+
     @Query(value = "select id from Company")
     List<Long> getIdsList();
 
