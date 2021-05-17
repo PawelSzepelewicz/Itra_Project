@@ -6,6 +6,6 @@ import lombok.Data;
 public class UserRole {
 
     private Long userId;
-    private String Role;
+    private String role;
 
 }
