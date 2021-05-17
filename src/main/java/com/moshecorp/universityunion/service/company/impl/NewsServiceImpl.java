@@ -5,6 +5,7 @@ import com.moshecorp.universityunion.model.NewsCreation;
 import com.moshecorp.universityunion.model.company.News;
 import com.moshecorp.universityunion.repository.company.NewsRepository;
 import com.moshecorp.universityunion.service.company.NewsService;
+import com.moshecorp.universityunion.utils.CloudinaryCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,11 +44,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public String sendPhotoToCloudStorage(MultipartFile file, Long companyId) { //utw
-        Map<String, String> credentials = new HashMap<>();
-        credentials.put("cloud_name", "itracourse");
-        credentials.put("api_key", "852218272247124");
-        credentials.put("api_secret", "2MPV2kthcxl9bbVpf_ExI6G-Vj4");
-        Cloudinary cloudinary = new Cloudinary(credentials);
+        Cloudinary cloudinary = new Cloudinary(new CloudinaryCredentials().getCloudinaryCredentials());
         try {
             Map resultUrl = cloudinary.uploader().upload(file.getBytes(),
                     Map.of("public_id", format("company/company_%s/news/%s", companyId, file.getOriginalFilename())));

@@ -4,17 +4,17 @@ import com.cloudinary.Cloudinary;
 import com.moshecorp.universityunion.model.company.CompanyPhoto;
 import com.moshecorp.universityunion.repository.company.CompanyPhotoRepository;
 import com.moshecorp.universityunion.service.company.CompanyPhotoService;
+import com.moshecorp.universityunion.utils.CloudinaryCredentials;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
-import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static java.lang.String.format;
 
@@ -28,7 +28,7 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
 
     @Override
     public List<String> getPhotoUrlListByCompanyId(Long companyId) {
-        return (List<String>) companyPhotoRepository.getAllByCompanyId(companyId).stream().map(ph -> {return ph.getPhotoUrl();});
+        return companyPhotoRepository.getAllByCompanyId(companyId).stream().map(CompanyPhoto::getPhotoUrl).collect(Collectors.toList());
     }
 
     @Override
@@ -37,11 +37,7 @@ public class CompanyPhotoServiceImpl implements CompanyPhotoService {
     }
 
     public void sendPhotoToCloudStorage(MultipartFile file, Long companyId) { //utw
-        Map<String, String> credentials = new HashMap<>();
-        credentials.put("cloud_name", "itracourse");
-        credentials.put("api_key", "852218272247124");
-        credentials.put("api_secret", "2MPV2kthcxl9bbVpf_ExI6G-Vj4");
-        Cloudinary cloudinary = new Cloudinary(credentials);
+        Cloudinary cloudinary = new Cloudinary(new CloudinaryCredentials().getCloudinaryCredentials());
         try {
             Map resultUrl = cloudinary.uploader().upload(file.getBytes(),
                     Map.of("public_id", format("company/company_%s/%s", companyId, file.getOriginalFilename())));
