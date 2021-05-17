@@ -30,7 +30,7 @@ public class CommentsServiceImpl implements CommentsService {
 
     @Override
     public List<Comments> getByCompanyId(Long companyId) {
-        return commentsRepository.getByCompanyId(companyId);
+        return commentsRepository.getByCompanyIdOrderByCommentsDatetimeDesc(companyId);
     }
 
 }

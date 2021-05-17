@@ -8,6 +8,6 @@ import java.util.List;
 @Repository
 public interface CommentsRepository extends JpaRepository<Comments, Long> {
 
-    List<Comments> getByCompanyId(Long companyId);
+    List<Comments> getByCompanyIdOrderByCommentsDatetimeDesc(Long companyId);
 
 }
