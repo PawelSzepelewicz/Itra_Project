@@ -17,7 +17,7 @@ public class CompanyController {
     @Autowired
     private final CompanyService service;
 
-    @PostMapping("/get")
+    @PostMapping("/getByTagId")
     public List<CompanyPreview> getCompanyListByTagId(@RequestBody Long tagId) {
         return service.getCompanyListByTagId(tagId);
     }

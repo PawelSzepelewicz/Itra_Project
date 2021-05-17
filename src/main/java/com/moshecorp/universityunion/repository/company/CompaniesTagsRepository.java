@@ -11,8 +11,8 @@ import java.util.List;
 @Repository
 public interface CompaniesTagsRepository extends JpaRepository<CompanyTags, Long> {
 
-    @Query(value = "select companyId from CompanyTags where id = :id")
-    List<Long> getCompanyIdById(@Param("id") Long id);
+    @Query(value = "select companyId from CompanyTags where tagId = :tagId")
+    List<Long> getCompanyIdByTagId(@Param("tagId") Long tagId);
 
     @Query(value = "select tagId from CompanyTags where companyId = :companyId")
     List<Long> getAllTagsByCompanyId(@Param("companyId")Long companyId); //utw

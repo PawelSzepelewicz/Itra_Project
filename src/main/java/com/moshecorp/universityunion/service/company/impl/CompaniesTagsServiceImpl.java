@@ -21,7 +21,7 @@ public class CompaniesTagsServiceImpl implements CompaniesTagsService {
 
     @Override
     public List<Long> getCompanyIdById(Long id) {
-        return companiesTagsRepository.getCompanyIdById(id);
+        return companiesTagsRepository.getCompanyIdByTagId(id);
     }
 
     @Override
