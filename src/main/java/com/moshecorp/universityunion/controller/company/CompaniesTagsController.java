@@ -20,7 +20,7 @@ public class CompaniesTagsController {
     private final CompaniesTagsService service;
 
     @PostMapping("/getCompanyIdByTag")
-    public List<Long> getCompanyIdByTagId(@RequestBody Long id) {
+    public List<Long> getCompanyIdByTagId(@RequestBody Long id) { //
         return service.getCompanyIdById(id);
     }
 

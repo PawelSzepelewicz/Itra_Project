@@ -19,6 +19,6 @@ public interface CompanyService {
 
     List<CompanyPreview> getAllByUserId(Long userId); //utw
 
-
+    List<CompanyPreview> getCompanyListByTagId(Long tagId);
 
 }

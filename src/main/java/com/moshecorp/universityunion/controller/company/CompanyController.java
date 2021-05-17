@@ -18,8 +18,13 @@ public class CompanyController {
     private final CompanyService service;
 
     @PostMapping("/get")
-    public List<Company> getAllByCategoryId(@RequestBody Long categoryId) {
-        return service.getAllByCategoryId(categoryId);
+    public List<CompanyPreview> getCompanyListByTagId(@RequestBody Long tagId) {
+        return service.getCompanyListByTagId(tagId);
+    }
+
+    @PostMapping("/getAllByUserId")
+    public List<CompanyPreview> getAllByUserId(Long userId) { //utw
+        return service.getAllByUserId(userId);
     }
 
     @GetMapping("/getByRating")
@@ -32,9 +37,5 @@ public class CompanyController {
         return service.getTopFiveByCreationDate();
     }
 
-    @PostMapping("/getAllByUserId")
-    public List<CompanyPreview> getAllByUserId(Long userId) { //utw
-        return service.getAllByUserId(userId);
-    }
 
 }
