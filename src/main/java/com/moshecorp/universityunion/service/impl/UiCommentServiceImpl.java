@@ -38,7 +38,7 @@ public class UiCommentServiceImpl implements UiCommentService {
             uiComment.setCreationDatetime(comment.getCommentsDatetime());
             List<Likes> likesList = likesService.getListOfLikesByCommentId(comment.getId());
             uiComment.setLikesCount(likesList.size());
-            uiComment.setLiked(likesList.stream().anyMatch(ll -> ll.getUserId().equals(ids.getUserId())));
+            uiComment.setLiked(ids.getUserId() != null && likesList.stream().anyMatch(ll -> ll.getUserId().equals(ids.getUserId())));
             uiCommentList.add(uiComment);
         });
         return uiCommentList;

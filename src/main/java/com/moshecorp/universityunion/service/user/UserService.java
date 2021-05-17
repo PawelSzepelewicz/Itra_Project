@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
 
-   String getUserFirstNameById(Long is);  //utw
+   String getUserFirstNameById(Long id);  //utw
 
    UiSettings register(User user);   //utw
 

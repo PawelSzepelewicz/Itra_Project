@@ -69,8 +69,8 @@ public class CompanyServiceImpl implements CompanyService {
     public List<CompanyPreview> getTopFiveByCreationDate() {
         List<Company> topCompanyList = companyRepository.getTopByCreationDate();
         List<CompanyPreview> companyPreviews = new ArrayList<>();
-        CompanyPreview cp = new CompanyPreview();
         topCompanyList.forEach(tcl -> {
+            CompanyPreview cp = new CompanyPreview();
             cp.setId(tcl.getId());
             cp.setAverageRating(ratingRepository.getAverageRatingByCompanyId(tcl.getId()));
             cp.setTitle(tcl.getName());

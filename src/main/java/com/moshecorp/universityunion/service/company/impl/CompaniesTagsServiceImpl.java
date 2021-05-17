@@ -36,6 +36,18 @@ public class CompaniesTagsServiceImpl implements CompaniesTagsService {
         companiesTagsRepository.saveAll(companyTagsList);
     }
 
+    @Override
+    public List<Tag> getTagsByCompanyId(Long companyId) {
+        List<Long> ct = companiesTagsRepository.getAllTagsByCompanyId(companyId);
+        List<Tag> tags = new ArrayList<>();
+        ct.forEach(t -> {
+            Tag tag = tagsRepository.getById(t);
+            tags.add(tag);
+        });
+
+        return tags;
+    }
+
     private List<Tag> getTagsListFromStrings(List<String> list){ //utw
         List<Tag> tagsList = new ArrayList<>();
         list.forEach(tg -> {

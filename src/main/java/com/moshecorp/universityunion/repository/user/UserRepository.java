@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "select firstName from User where id = :id")  //utw
     String getFirstNameById(Long id);
 
-    User getByEmailAndPassword(String email, String password);
+    User getByEmailAndPassword(String email, String password);  //utw
 
     User getById(Long id);
 
