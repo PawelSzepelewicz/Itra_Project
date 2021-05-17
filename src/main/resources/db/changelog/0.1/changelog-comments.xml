@@ -17,7 +17,7 @@
             <column name="company_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
-            <column name="comment_datetime" type="datetime">
+            <column name="comments_datetime" type="datetime">
                 <constraints nullable="false"/>
             </column>
             <column name="text" type="varchar">
