@@ -1,5 +1,6 @@
 package com.moshecorp.universityunion.service.user.impl;
 
+import com.moshecorp.universityunion.configuration.PasswordEncoder;
 import com.moshecorp.universityunion.enums.Language;
 import com.moshecorp.universityunion.enums.Roles;
 import com.moshecorp.universityunion.enums.Theme;
@@ -12,12 +13,6 @@ import com.moshecorp.universityunion.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.crypto.KeyGenerator;
-import javax.crypto.Mac;
-import javax.crypto.SecretKey;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.List;
 
 @Service
@@ -36,6 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UiSettings register(User user) { //utw
+        user.setPassword(PasswordEncoder.encode(user.getPassword()));
         user.setRole(Roles.USER.name());
         user = userRepository.save(user);
         return uiSettingsRepository.save(new UiSettings(user.getId(), Language.RU.name(), Theme.LIGHT.name(), user.getRole()));
@@ -43,12 +39,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UiSettings login(Login login) {  //utw
-        User user = userRepository.getByEmailAndPassword(login.getEmail(), login.getPassword());
-        if(user.getRole() == Roles.USER.name() || user.getRole() == Roles.ADMIN.name()) {
-            return uiSettingsRepository.getByUserId(user.getId());
-        }else{
-            return null;
-        }
+        User user = userRepository.getByEmailAndPassword(login.getEmail(), PasswordEncoder.encode(login.getPassword()));
+        return uiSettingsRepository.getByUserId(user.getId());
     }
 
     @Override
@@ -72,16 +64,5 @@ public class UserServiceImpl implements UserService {
     public String getFullName(Long id) {  //utw
         return userRepository.getById(id).getFirstName() + " " + userRepository.getById(id).getLastName();
     }
-
-    @Override
-    public String hashPassword(String password) throws NoSuchAlgorithmException {
-       return null;
-    }
-
-    @Override
-    public String getPasswordFromHash(String password) {
-        return null;
-    }
-
 
 }

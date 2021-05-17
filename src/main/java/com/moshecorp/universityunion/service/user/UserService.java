@@ -23,8 +23,4 @@ public interface UserService {
 
    String getFullName(Long id); //utw
 
-   String hashPassword(String password) throws NoSuchAlgorithmException;
-
-   String getPasswordFromHash(String password);
-
 }
