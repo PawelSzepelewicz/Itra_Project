@@ -1,6 +1,7 @@
 package com.moshecorp.universityunion.controller.user;
 
 import com.moshecorp.universityunion.model.Login;
+import com.moshecorp.universityunion.model.UserRole;
 import com.moshecorp.universityunion.model.user.UiSettings;
 import com.moshecorp.universityunion.model.user.User;
 import com.moshecorp.universityunion.service.user.UiSettingsService;
@@ -55,6 +56,11 @@ public class UserController {
     @PostMapping("/getFullName")
     public String getFullName(@RequestBody Long id) {  //utw
         return service.getFullName(id);
+    }
+
+    @PostMapping("/changeRole")
+    public void changeRole(@RequestBody UserRole userRole) {  //utw
+        uiSettingsService.changeRole(userRole);
     }
 
 }
