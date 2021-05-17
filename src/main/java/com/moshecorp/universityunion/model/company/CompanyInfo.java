@@ -19,5 +19,6 @@ public class CompanyInfo extends AbstractEntity {
     private Double averageRating;
     private List<Tag> companyTags;
     private List<UiComment> uiCommentsAndLikes;
+    private String categoryName;
 
 }

@@ -5,6 +5,7 @@ import com.moshecorp.universityunion.model.company.CompanyInfo;
 import com.moshecorp.universityunion.service.UiCommentService;
 import com.moshecorp.universityunion.service.UiRatingService;
 import com.moshecorp.universityunion.service.comments.CommentsService;
+import com.moshecorp.universityunion.service.common.CategoryService;
 import com.moshecorp.universityunion.service.company.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,9 +33,11 @@ public class CompanyInfoServiceImpl implements CompanyInfoService {
     UiCommentService uiCommentService;
     @Autowired
     UiRatingService uiRatingService;
+    @Autowired
+    CategoryService categoryService;
 
     @Override
-    public CompanyInfo getByIds(UserAndCompanyIds ids) {
+    public CompanyInfo getByIds(UserAndCompanyIds ids) {  //utw
         CompanyInfo companyInfo = new CompanyInfo();
         companyInfo.setCompany(companyService.getById(ids.getCompanyId()));
         companyInfo.setCompanyPhoto(companyPhotoService.getAllByCompanyId(ids.getCompanyId()));
@@ -42,6 +45,7 @@ public class CompanyInfoServiceImpl implements CompanyInfoService {
         companyInfo.setAverageRating(uiRatingService.getRating(ids).getAverageRating());
         companyInfo.setUiCommentsAndLikes(uiCommentService.getUiCommentsList(ids));
         companyInfo.setCompanyTags(companiesTagsService.getTagsByCompanyId(ids.getCompanyId()));
+        companyInfo.setCategoryName(categoryService.getCategoryNameById(companyInfo.getCompany().getCategoryId()));
 
 
         return companyInfo;

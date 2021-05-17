@@ -18,4 +18,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getCategoriesList() {  //utw
         return categoryRepository.findAll();
     }
+
+    @Override
+    public String getCategoryNameById(Long id) { //utw
+        return categoryRepository.getById(id).getCategoryName();
+    }
 }
