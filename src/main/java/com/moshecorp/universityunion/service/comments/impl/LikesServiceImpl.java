@@ -1,15 +1,14 @@
 package com.moshecorp.universityunion.service.comments.impl;
 
-import com.moshecorp.universityunion.model.comments.Comments;
+import com.moshecorp.universityunion.model.UserAndCommentIds;
 import com.moshecorp.universityunion.model.comments.Likes;
 import com.moshecorp.universityunion.repository.comments.LikesRepository;
 import com.moshecorp.universityunion.service.comments.LikesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 @Service
 public class LikesServiceImpl implements LikesService {
 
@@ -29,5 +28,10 @@ public class LikesServiceImpl implements LikesService {
     @Override
     public List<Likes> getListOfLikesByCommentId(Long commentId) {
         return likesRepository.getAllByCommentId(commentId);
+    }
+
+    @Override
+    public void setLike(UserAndCommentIds ids) { //utw
+        likesRepository.save(new Likes(ids.getUserId(), ids.getCommentId()));
     }
 }

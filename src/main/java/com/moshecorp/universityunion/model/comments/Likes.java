@@ -14,4 +14,12 @@ public class Likes extends AbstractEntity {
     private Long userId;
     private Long commentId;
 
+    public Likes(Long userId, Long commentId) {
+        this.userId = userId;
+        this.commentId = commentId;
+    }
+
+    public Likes() {
+
+    }
 }
