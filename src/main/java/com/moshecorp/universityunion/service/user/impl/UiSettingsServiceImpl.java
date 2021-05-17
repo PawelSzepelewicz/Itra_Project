@@ -29,7 +29,7 @@ public class UiSettingsServiceImpl implements UiSettingsService {
         uiSettings.setRole(getFromString(userRole.getRole()).name());
         uiSettingsRepository.save(uiSettings);
         User user = userRepository.getById(userRole.getUserId());
-        user.setRole(userRole.getRole());
+        user.setRole(getFromString(userRole.getRole()).name());
         userRepository.save(user);
     }
 
