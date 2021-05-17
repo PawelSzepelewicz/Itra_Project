@@ -20,8 +20,8 @@ public class PaymentController {
     @Autowired
     private final PaymentService service;
 
-    @PostMapping("/setPaymentToDb")
-    public void setPaymentToDatabase(@RequestBody Payments payment){
-        service.setPaymentToDatabase(payment);
+    @PostMapping("/payment/donate")
+    public void donate(@RequestBody Payments payment){  //utw
+        service.donate(payment);
     }
 }

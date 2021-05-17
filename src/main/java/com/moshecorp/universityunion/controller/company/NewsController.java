@@ -2,8 +2,6 @@ package com.moshecorp.universityunion.controller.company;
 
 import com.moshecorp.universityunion.model.NewsCreation;
 import com.moshecorp.universityunion.model.company.News;
-import com.moshecorp.universityunion.model.user.UiSettings;
-import com.moshecorp.universityunion.model.user.User;
 import com.moshecorp.universityunion.service.company.NewsService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

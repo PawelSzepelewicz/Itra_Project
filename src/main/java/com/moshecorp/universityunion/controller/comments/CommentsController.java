@@ -22,8 +22,8 @@ public class CommentsController {
     private final CommentsService service;
 
     @PostMapping("/set")     //utw
-    public List<UiComment> setNewComment(@RequestBody Comments comments){
-        return service.setCommentToDatabase(comments);
+    public void setNewComment(@RequestBody Comments comments){
+        service.setCommentToDatabase(comments);
     }
 
 }

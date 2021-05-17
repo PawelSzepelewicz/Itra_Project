@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface CommentsService {
 
-    List<UiComment> setCommentToDatabase(Comments comments); //utw
+    void setCommentToDatabase(Comments comments); //utw
 
     List<Comments> getByCompanyId(Long companyId);
 
