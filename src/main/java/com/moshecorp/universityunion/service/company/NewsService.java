@@ -1,24 +1,20 @@
 package com.moshecorp.universityunion.service.company;
 
 
+import com.moshecorp.universityunion.model.NewsCreation;
 import com.moshecorp.universityunion.model.company.News;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 public interface NewsService {
 
-    List<News> getAllByCompanyId(Long id);
+    News changeNews(News news); //utw
 
-    News getById(Long id);
+    News createNews(NewsCreation newsCreation); //utw
 
-    News getTitleById(Long id);
+    String sendPhotoToCloudStorage(MultipartFile file, Long companyId); //utw
 
-    List<News> getAllTitleByCompanyId(Long companyId);
-
-    News getContentById(Long id);
-
-    News getPhotoUrlById(Long id);
-
-    News getCreationDatetimeById(Long id);
+    List<News> getAllByCompanyId(Long companyId); //utw
 
 }
