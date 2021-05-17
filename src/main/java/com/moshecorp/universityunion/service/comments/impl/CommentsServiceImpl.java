@@ -22,14 +22,14 @@ public class CommentsServiceImpl implements CommentsService {
     private LikesService likesService;
 
     @Override
-    public void setCommentToDatabase(Comments comments) {
+    public void setCommentToDatabase(Comments comments) {   //utw
         Timestamp ts = Timestamp.from(Instant.now());
         comments.setCommentsDatetime(ts);
         commentsRepository.save(comments);
     }
 
     @Override
-    public List<Comments> getByCompanyId(Long companyId) {
+    public List<Comments> getByCompanyId(Long companyId) {  //utw
         return commentsRepository.getByCompanyIdOrderByCommentsDatetimeDesc(companyId);
     }
 

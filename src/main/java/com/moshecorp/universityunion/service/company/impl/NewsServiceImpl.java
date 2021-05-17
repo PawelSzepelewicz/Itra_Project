@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +35,8 @@ public class NewsServiceImpl implements NewsService {
         news.setCompanyId(newsCreation.getCompanyId());
         news.setTitle(newsCreation.getTitle());
         news.setContent(newsCreation.getContent());
-        news.setCreationDatetime(newsCreation.getCreationDatetime());
+        Timestamp ts = Timestamp.from(Instant.now());
+        news.setCreationDatetime(ts);
         news.setPhotoUrl(sendPhotoToCloudStorage(newsCreation.getPhotoUrl(), newsCreation.getCompanyId()));
         newsRepository.save(news);
         return news;
