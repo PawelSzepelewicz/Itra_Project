@@ -34,4 +34,9 @@ public class LikesServiceImpl implements LikesService {
     public void setLike(UserAndCommentIds ids) { //utw
         likesRepository.save(new Likes(ids.getUserId(), ids.getCommentId()));
     }
+
+    @Override
+    public void deleteLike(UserAndCommentIds ids) {
+        likesRepository.deleteByCommentIdAndUserId(ids.getCommentId(), ids.getUserId());
+    }
 }

@@ -15,4 +15,6 @@ public interface LikesService {
 
     void setLike(UserAndCommentIds ids); //utw
 
+    void deleteLike(UserAndCommentIds ids); //utw
+
 }

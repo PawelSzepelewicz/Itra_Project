@@ -20,4 +20,9 @@ public class LikesController {
     public void setNewLike(@RequestBody UserAndCommentIds ids) {//utw
         service.setLike(ids);
     }
+
+    @PostMapping("/delete")
+    public void deleteLike(@RequestBody UserAndCommentIds ids) {//utw
+        service.deleteLike(ids);
+    }
 }

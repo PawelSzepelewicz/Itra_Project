@@ -18,4 +18,6 @@ public interface LikesRepository extends JpaRepository<Likes, Long> {
     List<Long> getUserIdByCommentId(@Param("commentId") Long commentId);
 
     List<Likes> getAllByCommentId(Long commentId);
+
+    void deleteByCommentIdAndUserId(Long commentId, Long userId);
 }
