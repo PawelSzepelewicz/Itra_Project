@@ -2,11 +2,13 @@ package com.moshecorp.universityunion.service.user.impl;
 
 import com.moshecorp.universityunion.model.comments.Comments;
 import com.moshecorp.universityunion.model.company.BonusOffer;
+import com.moshecorp.universityunion.model.company.Company;
 import com.moshecorp.universityunion.model.company.Payments;
 import com.moshecorp.universityunion.model.user.UserBonuses;
 import com.moshecorp.universityunion.repository.company.BonusOfferRepository;
 import com.moshecorp.universityunion.repository.user.UserBonusesRepository;
 import com.moshecorp.universityunion.service.company.BonusOfferService;
+import com.moshecorp.universityunion.service.company.CompanyService;
 import com.moshecorp.universityunion.service.user.UserBonusesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,8 @@ public class UserBonusesServiceImpl implements UserBonusesService {
     UserBonusesRepository userBonusesRepository;
     @Autowired
     BonusOfferService bonusOfferService;
+    @Autowired
+    CompanyService companyService;
 
     @Override
     public List<BonusOffer> getBonusOfferListByUserId(Long userId) {
@@ -39,6 +43,10 @@ public class UserBonusesServiceImpl implements UserBonusesService {
         userBonuses.setUserId(userId);
         userBonuses.setBonusOfferId(bonusOfferId);
         userBonusesRepository.save(userBonuses);
+        BonusOffer bonusOffer = bonusOfferService.getById(bonusOfferId);
+        Company company = companyService.getById(bonusOffer.getCompanyId());
+        company.setCurrentSum(company.getCurrentSum() + bonusOffer.getBonusSum());
+        companyService.saveNewCompany(company);
     }
 
     @Override

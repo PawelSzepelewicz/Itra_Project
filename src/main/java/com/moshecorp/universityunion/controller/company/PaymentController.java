@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController()
-@RequestMapping("/company")
+@RequestMapping("/company/payment")
 @AllArgsConstructor
 public class PaymentController {
     @Autowired
     private final PaymentService service;
 
-    @PostMapping("/payment/donate")
+    @PostMapping("/donate")
     public void donate(@RequestBody Payments payment){  //utw
         service.donate(payment);
     }
