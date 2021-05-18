@@ -6,6 +6,7 @@ import com.moshecorp.universityunion.repository.comments.LikesRepository;
 import com.moshecorp.universityunion.service.comments.LikesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class LikesServiceImpl implements LikesService {
         likesRepository.save(new Likes(ids.getUserId(), ids.getCommentId()));
     }
 
+    @Transactional
     @Override
     public void deleteLike(UserAndCommentIds ids) {
         likesRepository.deleteByCommentIdAndUserId(ids.getCommentId(), ids.getUserId());

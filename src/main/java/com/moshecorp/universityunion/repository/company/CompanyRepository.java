@@ -21,4 +21,5 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
     @Query(value = "select * from company order by creation_date desc limit 5", nativeQuery = true)
     List<Company> getTopByCreationDate();
 
+//Bestfull bestPractice, Hibernate, теория, one to many - many to one, spring bin, application context
 }

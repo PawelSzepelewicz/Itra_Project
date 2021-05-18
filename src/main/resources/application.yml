@@ -4,9 +4,9 @@ spring:
   application:
     name: main
   datasource:
-    url:
-    username:
-    password:
+    url: jdbc:postgresql://localhost:5432/itracourse
+    username: postgres
+    password: Israel1997Israel
     driver-class-name: org.postgresql.Driver
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-main.xml

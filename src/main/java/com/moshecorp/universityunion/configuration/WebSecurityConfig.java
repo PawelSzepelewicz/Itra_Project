@@ -17,13 +17,15 @@ package com.moshecorp.universityunion.configuration;
 //import org.springframework.web.context.request.RequestContextListener;
 //import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import org.springframework.context.annotation.Bean;
+
 import java.util.Map;
 //@Configuration
 //@EnableWebSecurity
 //@EnableOAuth2Sso
 public class WebSecurityConfig //extends WebSecurityConfigurerAdapter
 {
-
+//
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http

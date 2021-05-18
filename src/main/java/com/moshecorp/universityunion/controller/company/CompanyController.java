@@ -21,7 +21,6 @@ public class CompanyController {
     public List<CompanyPreview> getCompanyListByTagId(@RequestBody Long tagId) {
         return service.getCompanyListByTagId(tagId);
     }
-
     @PostMapping("/getAllByUserId")
     public List<CompanyPreview> getAllByUserId(Long userId) { //utw
         return service.getAllByUserId(userId);

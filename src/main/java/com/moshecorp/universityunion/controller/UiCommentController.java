@@ -5,10 +5,7 @@ import com.moshecorp.universityunion.model.UserAndCompanyIds;
 import com.moshecorp.universityunion.service.UiCommentService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class UiCommentController {
     @Autowired
     private final UiCommentService service;
 
-    @PostMapping("/get")
+    @GetMapping("/get")
     public List<UiComment> getUiCommentsList(@RequestBody UserAndCompanyIds ids) {
         return service.getUiCommentsList(ids);
     }
